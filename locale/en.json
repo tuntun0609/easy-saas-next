@@ -1,8 +1,11 @@
 {
-	"HomePage": {
-		"LoginIn": "Login In",
-		"Light": "Light",
-		"Dark": "Dark",
-		"System": "System"
-	}
+  "HomePage": {
+    "loginIn": "Login In",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "LocaleSwitch": {
+    "locale": "{locale, select, zh {中文} en {English} other {Unknown}}"
+  }
 }

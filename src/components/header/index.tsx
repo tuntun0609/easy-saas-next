@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
-import { LangSwitch } from '../lang-switch'
+import { LocaleSwitch } from '../locale-switch'
 import ThemeToggle from '../theme/theme-toggle'
 import { Button } from '../ui/button'
 
@@ -17,9 +17,9 @@ export const Header = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <LangSwitch />
+        <LocaleSwitch />
         <ThemeToggle />
-        <Button>{t('LoginIn')}</Button>
+        <Button>{t('loginIn')}</Button>
       </div>
     </header>
   )

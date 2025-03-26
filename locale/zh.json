@@ -1,8 +1,11 @@
 {
-	"HomePage": {
-		"LoginIn": "登录",
-		"Light": "明亮",
-		"Dark": "暗色",
-		"System": "跟随系统"
-	}
+  "HomePage": {
+    "loginIn": "登录",
+    "light": "明亮",
+    "dark": "暗色",
+    "system": "跟随系统"
+  },
+  "LocaleSwitch": {
+    "locale": "{locale, select, zh {中文} en {English} other {Unknown}}"
+  }
 }
