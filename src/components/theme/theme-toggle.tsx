@@ -1,6 +1,7 @@
 'use client'
 
 import { Laptop, Moon, Sun } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
@@ -33,6 +34,7 @@ const themeConfig = [
 ]
 
 export default function ThemeToggle() {
+  const t = useTranslations('HomePage')
   const { theme, setTheme } = useTheme()
 
   const onChangeTheme = (value: string) => {
@@ -79,7 +81,7 @@ export default function ThemeToggle() {
             onClick={() => onChangeTheme(config.value)}
           >
             {config.icon}
-            {config.label}
+            {t(config.label)}
           </Button>
         ))}
       </PopoverContent>

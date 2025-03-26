@@ -1,13 +1,16 @@
 import { Geist, Geist_Mono } from 'next/font/google'
+import { notFound } from 'next/navigation'
+import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import NextTopLoader from 'nextjs-toploader'
 
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme'
 import { siteConfig } from '@/config'
+import { routing } from '@/lib/i18n/routing'
 
 import type { Metadata } from 'next'
 
-import './globals.css'
+import '../globals.css'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -24,23 +27,32 @@ export const metadata: Metadata = {
   description: 'Easy Saas Next',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode
+  params: Promise<{ locale: string }>
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextTopLoader
-          color={siteConfig.topLoaderColor}
-          zIndex={51}
-          showSpinner={false}
-          showForHashAnchor={false}
-        />
-        <ThemeProvider>{children}</ThemeProvider>
+  const { locale } = await params
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
 
-        <TailwindIndicator />
+  return (
+    <html lang={locale} suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <NextIntlClientProvider>
+          <NextTopLoader
+            color={siteConfig.topLoaderColor}
+            zIndex={51}
+            showSpinner={false}
+            showForHashAnchor={false}
+          />
+          <ThemeProvider>{children}</ThemeProvider>
+
+          <TailwindIndicator />
+        </NextIntlClientProvider>
       </body>
     </html>
   )
