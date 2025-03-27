@@ -1,6 +1,11 @@
 {
+  "Header": {
+    "docs": "Docs",
+    "pricing": "Pricing",
+    "about": "About",
+    "loginIn": "Login In"
+  },
   "HomePage": {
-    "loginIn": "Login In",
     "light": "Light",
     "dark": "Dark",
     "system": "System"

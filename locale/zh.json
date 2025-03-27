@@ -1,6 +1,11 @@
 {
+  "Header": {
+    "docs": "文档",
+    "pricing": "定价",
+    "about": "关于",
+    "loginIn": "登录"
+  },
   "HomePage": {
-    "loginIn": "登录",
     "light": "明亮",
     "dark": "暗色",
     "system": "跟随系统"
