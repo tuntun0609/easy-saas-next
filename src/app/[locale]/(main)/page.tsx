@@ -1,37 +1,84 @@
-import { Locale, useLocale } from 'next-intl'
+import { ArrowRight, Book } from 'lucide-react'
+import { Locale, useLocale, useTranslations } from 'next-intl'
 
 import { Hero, type HeroProps } from '@/components/hero'
 import { UnderlineText } from '@/components/underline-text'
 
 export default function Home() {
   const locale = useLocale()
+  const t = useTranslations('Hero')
 
   const hero: Record<Locale, HeroProps> = {
     zh: {
-      announcement: '😃 即将发布',
-      announcementLink: '/docs',
+      announcement: {
+        text: '😃 即将发布',
+        props: {
+          href: '/docs',
+          className: 'border-purple-300 dark:border-purple-800',
+        },
+      },
       title: (
         <>
-          使用 <UnderlineText>Easy SaaS Next</UnderlineText> 更快构建 SaaS 应用
+          使用{' '}
+          <UnderlineText lineColor="#9810fa7f" className="text-purple-500">
+            Easy SaaS Next
+          </UnderlineText>{' '}
+          更快构建 SaaS 应用
         </>
       ),
-      description: '使用 Next.js 和 Tailwind CSS 构建的 SaaS 应用',
+      description: '在Easy SaaS Next中使用最先进的技术，基于 Nextjs 快速构建你的 SaaS 应用',
     },
     en: {
-      announcement: '😃 Coming soon',
-      announcementLink: '/docs',
+      announcement: {
+        text: '😃 Coming soon',
+        props: {
+          href: '/docs',
+        },
+      },
       title: (
         <>
-          Make your <UnderlineText>SaaS Application</UnderlineText> easier
+          Make your{' '}
+          <UnderlineText lineColor="#9810fa7f" className="text-purple-500">
+            SaaS Application
+          </UnderlineText>{' '}
+          easier
         </>
       ),
-      description: 'The easiest way to build a SaaS',
+      description:
+        'Build your SaaS application faster with Easy SaaS Next using cutting-edge technologies based on Nextjs',
     },
   }
 
   return (
     <>
-      <Hero {...hero[locale]} />
+      <Hero
+        buttons={[
+          {
+            text: (
+              <>
+                {t('getStarted')} <ArrowRight />
+              </>
+            ),
+            href: '/',
+            props: {
+              size: 'lg',
+            },
+          },
+          {
+            text: (
+              <>
+                {t('readDocs')} <Book />
+              </>
+            ),
+            href: '/docs',
+            props: {
+              variant: 'outline',
+              size: 'lg',
+            },
+          },
+        ]}
+        {...hero[locale]}
+      />
     </>
   )
 }

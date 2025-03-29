@@ -12,5 +12,9 @@
   },
   "LocaleSwitch": {
     "locale": "{locale, select, zh {中文} en {English} other {Unknown}}"
+  },
+  "Hero": {
+    "getStarted": "Get Started",
+    "readDocs": "Read Docs"
   }
 }

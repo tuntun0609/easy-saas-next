@@ -1,4 +1,3 @@
-import { Geist, Geist_Mono } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import NextTopLoader from 'nextjs-toploader'
@@ -7,20 +6,11 @@ import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme'
 import { siteConfig } from '@/config'
 import { routing } from '@/lib/i18n/routing'
+import { caveat, geistMono, geistSans } from '@/style/font'
 
 import type { Metadata } from 'next'
 
-import '../globals.css'
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+import '../../style/globals.css'
 
 export const metadata: Metadata = {
   title: 'Easy Saas Next',
@@ -41,7 +31,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}
+      >
         <NextIntlClientProvider>
           <NextTopLoader
             color={siteConfig.topLoaderColor}
@@ -49,7 +41,10 @@ export default async function RootLayout({
             showSpinner={false}
             showForHashAnchor={false}
           />
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            {children}
+            <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(149,119,198,0.3),rgba(255,255,255,0))] dark:hidden"></div>
+          </ThemeProvider>
           <TailwindIndicator />
         </NextIntlClientProvider>
       </body>

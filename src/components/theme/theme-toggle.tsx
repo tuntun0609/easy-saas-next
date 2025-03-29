@@ -1,5 +1,6 @@
 'use client'
 
+import { ComponentProps } from 'react'
 import { Laptop, Moon, Sun } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
@@ -33,7 +34,13 @@ const themeConfig = [
   },
 ]
 
-export default function ThemeToggle() {
+export default function ThemeToggle({
+  className,
+  buttonProps = {},
+}: {
+  className?: string
+  buttonProps?: ComponentProps<typeof Button>
+}) {
   const t = useTranslations('HomePage')
   const { theme, setTheme } = useTheme()
 
@@ -63,7 +70,7 @@ export default function ThemeToggle() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="h-9 w-9 p-0">
+        <Button variant="ghost" size="sm" {...buttonProps} className={cn('h-9 w-9 p-0', className)}>
           <Sun className="scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
           <Moon className="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
           <span className="sr-only">Toggle theme</span>
