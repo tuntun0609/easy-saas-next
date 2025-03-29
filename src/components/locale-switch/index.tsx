@@ -8,7 +8,7 @@ import { usePathname, useRouter } from '@/lib/i18n/navigation'
 import { routing } from '@/lib/i18n/routing'
 import { cn } from '@/lib/utils'
 
-export const LocaleSwitch = () => {
+export const LocaleSwitch = ({ className }: { className?: string }) => {
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
@@ -28,7 +28,7 @@ export const LocaleSwitch = () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="ghost" className="flex items-center gap-2">
+        <Button variant="ghost" className={cn('flex items-center gap-2', className)}>
           <Globe className="h-4 w-4" />
           {t('locale', { locale: locale })}
           <ChevronDown className="h-4 w-4" />

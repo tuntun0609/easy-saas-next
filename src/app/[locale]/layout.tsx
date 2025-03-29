@@ -50,7 +50,6 @@ export default async function RootLayout({
             showForHashAnchor={false}
           />
           <ThemeProvider>{children}</ThemeProvider>
-
           <TailwindIndicator />
         </NextIntlClientProvider>
       </body>
