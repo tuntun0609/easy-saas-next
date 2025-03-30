@@ -2,10 +2,10 @@ import { CSSProperties } from 'react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
-import { authClient } from '@/lib/auth-client'
 import { cn } from '@/lib/utils'
 
 import { Button } from '../ui/button'
+import { useUser } from '../user-provider'
 
 export const UserButton = ({ className, style }: { className?: string; style?: CSSProperties }) => {
   const t = useTranslations('Header')
@@ -14,9 +14,7 @@ export const UserButton = ({ className, style }: { className?: string; style?: C
     isPending, //loading state
     error, //error object
     // refetch, //refetch the session
-  } = authClient.useSession()
-
-  console.log(session)
+  } = useUser()
 
   if (isPending) {
     return <Button>Loading...</Button>

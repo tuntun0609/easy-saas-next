@@ -16,5 +16,12 @@
   "Hero": {
     "getStarted": "立即开始",
     "readDocs": "阅读文档"
+  },
+  "LoginPage": {
+    "welcome": "欢迎回来",
+    "welcomeDesc": "请选择登录方式继续",
+    "google": "使用Google账号登录",
+    "github": "使用Github账号登录",
+    "agree": "登录即表示同意我们的服务条款和隐私政策"
   }
 }

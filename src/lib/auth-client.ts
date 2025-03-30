@@ -9,3 +9,10 @@ export const signInWithGoogle = async () => {
 
   return data
 }
+
+export const signInWithGithub = async () => {
+  const data = await authClient.signIn.social({
+    provider: 'github',
+  })
+  return data
+}
