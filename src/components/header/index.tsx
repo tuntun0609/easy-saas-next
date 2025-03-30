@@ -18,6 +18,7 @@ import {
 import { LocaleSwitch } from '../locale-switch'
 import ThemeToggle from '../theme/theme-toggle'
 import { Button } from '../ui/button'
+import { UserButton } from '../user-button.tsx'
 
 export const Header = () => {
   const t = useTranslations('Header')
@@ -50,7 +51,7 @@ export const Header = () => {
       <div className="flex items-center gap-4">
         <LocaleSwitch className="hidden lg:flex" />
         <ThemeToggle className="hidden lg:flex" />
-        <Button className="hidden lg:block">{t('loginIn')}</Button>
+        <UserButton className="hidden lg:flex" />
         <Drawer direction="right">
           <DrawerTrigger asChild>
             <Button variant="outline" className="cursor-pointer lg:hidden" size="icon">
@@ -100,7 +101,7 @@ export const Header = () => {
                 <LocaleSwitch />
                 <ThemeToggle />
               </div>
-              <Button>{t('loginIn')}</Button>
+              <UserButton />
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
