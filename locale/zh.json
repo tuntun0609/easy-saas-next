@@ -3,7 +3,10 @@
     "docs": "文档",
     "pricing": "定价",
     "about": "关于",
-    "loginIn": "登录"
+    "loginIn": "登录",
+    "logout": "退出登录",
+    "pending": "加载中...",
+    "authError": "登录失败，请稍后再试"
   },
   "HomePage": {
     "light": "明亮",

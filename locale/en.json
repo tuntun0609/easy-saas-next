@@ -3,7 +3,10 @@
     "docs": "Docs",
     "pricing": "Pricing",
     "about": "About",
-    "loginIn": "Login In"
+    "loginIn": "Login In",
+    "logout": "Logout",
+    "pending": "Loading...",
+    "authError": "Login failed, please try again later"
   },
   "HomePage": {
     "light": "Light",

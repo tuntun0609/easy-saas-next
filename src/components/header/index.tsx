@@ -18,7 +18,7 @@ import {
 import { LocaleSwitch } from '../locale-switch'
 import ThemeToggle from '../theme/theme-toggle'
 import { Button } from '../ui/button'
-import { UserButton } from '../user-button.tsx'
+import { UserButton } from '../user-button'
 
 export const Header = () => {
   const t = useTranslations('Header')
