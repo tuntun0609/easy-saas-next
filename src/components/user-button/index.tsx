@@ -1,5 +1,8 @@
+'use client'
+
 import { CSSProperties } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
@@ -10,8 +13,19 @@ import { Button } from '../ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import { useUser } from '../user-provider'
 
-export const UserButton = ({ className, style }: { className?: string; style?: CSSProperties }) => {
+export const UserButton = ({
+  className,
+  style,
+  imageSize = 32,
+  showName = false,
+}: {
+  className?: string
+  style?: CSSProperties
+  imageSize?: number
+  showName?: boolean
+}) => {
   const t = useTranslations('Header')
+  const pathname = usePathname()
   const {
     data: session,
     isPending, //loading state
@@ -24,7 +38,11 @@ export const UserButton = ({ className, style }: { className?: string; style?: C
   }
 
   if (isPending) {
-    return <Button>{t('pending')}</Button>
+    return (
+      <Button variant="ghost" style={style} className={cn(className)}>
+        {t('pending')}
+      </Button>
+    )
   }
 
   if (error) {
@@ -40,17 +58,20 @@ export const UserButton = ({ className, style }: { className?: string; style?: C
       <Popover>
         <PopoverTrigger asChild>
           {session.user.image ? (
-            <Button variant="ghost" className="p-0">
+            <Button variant="ghost" style={style} className={cn(className, 'p-0')}>
               <img
                 className="rounded-full"
                 src={session.user.image ?? ''}
                 alt="user"
-                width={32}
-                height={32}
+                width={imageSize}
+                height={imageSize}
               />
+              {showName && <span className="text-sm">{session.user.name}</span>}
             </Button>
           ) : (
-            <Button variant="ghost">{session.user.name}</Button>
+            <Button variant="ghost" style={style} className={cn(className)}>
+              {session.user.name}
+            </Button>
           )}
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-2">
@@ -65,7 +86,7 @@ export const UserButton = ({ className, style }: { className?: string; style?: C
   }
 
   return (
-    <Link href="/login">
+    <Link href={pathname === '/' ? '/login' : `/login?callbackURL=${encodeURIComponent(pathname)}`}>
       <Button className={cn(className)} style={style}>
         {t('loginIn')}
       </Button>

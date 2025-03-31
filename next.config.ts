@@ -11,6 +11,7 @@ const withMDX = createMDX()
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: false,
+  crossOrigin: 'anonymous',
 }
 
 export default withMiddlewares(nextConfig, [withNextIntl, withMDX])

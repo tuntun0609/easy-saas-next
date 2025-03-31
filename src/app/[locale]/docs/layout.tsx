@@ -4,6 +4,7 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs'
 import { RootProvider } from 'fumadocs-ui/provider'
 import { useLocale, useTranslations } from 'next-intl'
 
+import { UserButton } from '@/components/user-button'
 import { fumadocsUiTranslations } from '@/lib/i18n/fumadocs-ui-translation'
 import { routing } from '@/lib/i18n/routing'
 import { source } from '@/lib/source'
@@ -31,7 +32,14 @@ export default function Layout({ children }: { children: ReactNode }) {
         }}
       >
         <DocsLayout
-          sidebar={{ prefetch: false }}
+          sidebar={{
+            prefetch: false,
+            footer: (
+              <div className="mt-2 flex items-center justify-end">
+                <UserButton showName className="h-6" imageSize={28} />
+              </div>
+            ),
+          }}
           tree={source.pageTree[locale]}
           {...baseOptions(locale)}
         >

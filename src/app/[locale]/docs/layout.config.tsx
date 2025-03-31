@@ -13,6 +13,9 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
  */
 export const baseOptions = (_locale: string): BaseLayoutProps => ({
   i18n: i18nDocsConfig,
+  themeSwitch: {
+    mode: 'light-dark-system',
+  },
   nav: {
     title: (
       <>

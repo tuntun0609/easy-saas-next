@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
@@ -9,15 +10,15 @@ import { signInWithGithub, signInWithGoogle } from '@/lib/auth-client'
 
 const LoginPage = () => {
   const t = useTranslations('LoginPage')
+  const searchParams = useSearchParams()
+  const callbackURL = searchParams.get('callbackURL') || '/'
 
   const handleSignInWithGoogle = async () => {
-    const data = await signInWithGoogle()
-    console.log(data)
+    await signInWithGoogle(callbackURL)
   }
 
   const handleSignInWithGithub = async () => {
-    const data = await signInWithGithub()
-    console.log(data)
+    await signInWithGithub(callbackURL)
   }
 
   return (
