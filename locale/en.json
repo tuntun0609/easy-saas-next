@@ -26,5 +26,35 @@
     "google": "Login with Google",
     "github": "Login with Github",
     "agree": "Login means you agree to our terms of service and privacy policy"
+  },
+  "Price": {
+    "title": "Simple and flexible pricing plans",
+    "description": "Choose the plan that best suits your business needs, and upgrade at any time",
+    "free": {
+      "name": "Free",
+      "description": "Perfect for beginners",
+      "buttonText": "Start Learning"
+    },
+    "standard": {
+      "name": "Standard",
+      "description": "For developers and small teams",
+      "buttonText": "Get Source Code",
+      "popularText": "Popular Choice"
+    },
+    "premium": {
+      "name": "Premium",
+      "description": "For professional teams and enterprises",
+      "price": "Contact Us",
+      "buttonText": "Contact Us"
+    },
+    "features": {
+      "tutorials": "Video Tutorials",
+      "basicComponents": "Basic Components",
+      "communitySupport": "Community Support",
+      "fullSourceCode": "Full Source Code",
+      "advancedComponents": "Advanced Components",
+      "prioritySupport": "Priority Support",
+      "customService": "Custom Services"
+    }
   }
 }

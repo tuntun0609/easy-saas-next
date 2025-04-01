@@ -35,8 +35,8 @@ export default function Layout({ children }: { children: ReactNode }) {
           sidebar={{
             prefetch: false,
             footer: (
-              <div className="mt-2 flex items-center justify-end">
-                <UserButton showName className="h-6" imageSize={28} />
+              <div className="mt-2 flex w-full items-center">
+                <UserButton size="large" showName />
               </div>
             ),
           }}

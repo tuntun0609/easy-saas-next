@@ -1,6 +1,7 @@
 'use client'
 
 import { CSSProperties } from 'react'
+import { ChevronsUpDown, LogOut } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
@@ -18,11 +19,13 @@ export const UserButton = ({
   style,
   imageSize = 32,
   showName = false,
+  size = 'default',
 }: {
   className?: string
   style?: CSSProperties
   imageSize?: number
   showName?: boolean
+  size?: 'default' | 'large'
 }) => {
   const t = useTranslations('Header')
   const pathname = usePathname()
@@ -39,7 +42,11 @@ export const UserButton = ({
 
   if (isPending) {
     return (
-      <Button variant="ghost" style={style} className={cn(className)}>
+      <Button
+        variant="ghost"
+        style={style}
+        className={cn(className, size === 'large' && 'h-12 w-full')}
+      >
         {t('pending')}
       </Button>
     )
@@ -57,26 +64,64 @@ export const UserButton = ({
     return (
       <Popover>
         <PopoverTrigger asChild>
-          {session.user.image ? (
+          {size === 'default' ? (
             <Button variant="ghost" style={style} className={cn(className, 'p-0')}>
-              <img
-                className="rounded-full"
-                src={session.user.image ?? ''}
-                alt="user"
-                width={imageSize}
-                height={imageSize}
-              />
+              {session.user.image && (
+                <img
+                  className="rounded-full"
+                  src={session.user.image ?? ''}
+                  alt="user"
+                  width={imageSize}
+                  height={imageSize}
+                />
+              )}
               {showName && <span className="text-sm">{session.user.name}</span>}
             </Button>
           ) : (
-            <Button variant="ghost" style={style} className={cn(className)}>
-              {session.user.name}
+            <Button
+              variant="ghost"
+              style={style}
+              className={cn(className, 'h-12 w-full justify-between hover:bg-gray-200')}
+            >
+              <div className="flex items-center gap-2">
+                {session.user.image && (
+                  <img
+                    className="rounded-full"
+                    src={session.user.image ?? ''}
+                    alt="user"
+                    width={imageSize}
+                    height={imageSize}
+                  />
+                )}
+                {<span className="text-sm font-bold">{session.user.name}</span>}
+              </div>
+              <ChevronsUpDown />
             </Button>
           )}
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-2">
-          <div className="flex flex-col gap-2">
-            <Button variant="outline" className="w-full" onClick={handleLogout}>
+        <PopoverContent className="w-[200px] p-0">
+          <div className="border-b border-gray-200 p-2">
+            <div className="flex items-center gap-2">
+              {session.user.image && (
+                <img
+                  className="rounded-full"
+                  src={session.user.image ?? ''}
+                  alt="user"
+                  width={imageSize}
+                  height={imageSize}
+                />
+              )}
+              {<span className="text-sm font-bold">{session.user.name}</span>}
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 p-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={handleLogout}
+            >
+              <LogOut />
               {t('logout')}
             </Button>
           </div>
@@ -86,8 +131,11 @@ export const UserButton = ({
   }
 
   return (
-    <Link href={pathname === '/' ? '/login' : `/login?callbackURL=${encodeURIComponent(pathname)}`}>
-      <Button className={cn(className)} style={style}>
+    <Link
+      className={cn(className, size === 'large' && 'h-12 w-full')}
+      href={pathname === '/' ? '/login' : `/login?callbackURL=${encodeURIComponent(pathname)}`}
+    >
+      <Button className={cn(className, size === 'large' && 'h-12 w-full')} style={style}>
         {t('loginIn')}
       </Button>
     </Link>
