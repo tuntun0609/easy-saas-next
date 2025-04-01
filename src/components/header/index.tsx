@@ -101,7 +101,7 @@ export const Header = () => {
                 <LocaleSwitch />
                 <ThemeToggle />
               </div>
-              <UserButton showName />
+              <UserButton size="large" showName />
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
