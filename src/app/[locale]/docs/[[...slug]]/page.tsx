@@ -3,12 +3,12 @@ import { DocsPage, DocsBody, DocsDescription, DocsTitle } from 'fumadocs-ui/page
 import { notFound } from 'next/navigation'
 import { getLocale } from 'next-intl/server'
 
-import { source } from '@/lib/source'
+import { docsSource } from '@/lib/source'
 
 export default async function Page(props: { params: Promise<{ slug?: string[] }> }) {
   const locale = await getLocale()
   const params = await props.params
-  const page = source.getPage(params.slug, locale)
+  const page = docsSource.getPage(params.slug, locale)
   if (!page) notFound()
 
   const MDXContent = page.data.body
@@ -22,7 +22,7 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
           components={{
             ...defaultMdxComponents,
             // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(source, page),
+            a: createRelativeLink(docsSource, page),
           }}
         />
       </DocsBody>
@@ -30,13 +30,16 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
   )
 }
 
-// export async function generateStaticParams() {
-//   return source.generateParams()
-// }
+export async function generateStaticParams() {
+  return docsSource.generateParams().map(item => ({
+    slug: item.slug,
+    locale: item.lang,
+  }))
+}
 
 export async function generateMetadata(props: { params: Promise<{ slug?: string[] }> }) {
   const params = await props.params
-  const page = source.getPage(params.slug)
+  const page = docsSource.getPage(params.slug)
   if (!page) notFound()
 
   return {

@@ -100,7 +100,7 @@ export const UserButton = ({
           )}
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0">
-          <div className="border-b border-gray-200 p-2">
+          <div className="border-b p-2">
             <div className="flex items-center gap-2">
               {session.user.image && (
                 <img

@@ -45,22 +45,8 @@ export default function ThemeToggle({
   const { theme, setTheme } = useTheme()
 
   const onChangeTheme = (value: string) => {
-    const systemTheme = getSystemTheme()
-
     // if the selected theme is the same as the current theme, return
     if (value === theme) {
-      return
-    }
-
-    // switch to system, but if the current theme is the same as the system theme, switch directly
-    if (value === 'system' && theme === systemTheme) {
-      setTheme('system')
-      return
-    }
-
-    // switch to system, but if the current theme is the same as the system theme, switch directly
-    if (theme === 'system' && value === systemTheme) {
-      setTheme(value)
       return
     }
 

@@ -39,10 +39,10 @@ export const Header = () => {
           <Link prefetch={false} href="/docs">
             <Button variant="ghost">{t('docs')}</Button>
           </Link>
-          <Link prefetch={false} href="/">
+          <Link prefetch={false} href="/pricing">
             <Button variant="ghost">{t('pricing')}</Button>
           </Link>
-          <Link prefetch={false} href="/">
+          <Link prefetch={false} href="/about">
             <Button variant="ghost">{t('about')}</Button>
           </Link>
         </nav>
@@ -84,14 +84,14 @@ export const Header = () => {
               <Link
                 prefetch={false}
                 className="hover:text-primary/70 flex items-center gap-2 transition-colors duration-300"
-                href="/"
+                href="/pricing"
               >
                 {t('pricing')}
               </Link>
               <Link
                 prefetch={false}
                 className="hover:text-primary/70 flex items-center gap-2 transition-colors duration-300"
-                href="/"
+                href="/about"
               >
                 {t('about')}
               </Link>
