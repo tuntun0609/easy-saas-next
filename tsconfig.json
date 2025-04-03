@@ -29,7 +29,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "**/*.d.ts",
-    "src/components/user-button"
+    "src/components/blocks/user-button"
   ],
   "exclude": ["node_modules"]
 }

@@ -3,7 +3,7 @@ import fumaDefaultMdxComponents from 'fumadocs-ui/mdx'
 import { isNil } from 'lodash-es'
 import { Locale } from 'next-intl'
 
-import { Mermaid } from '@/components/mermaid'
+import { Mermaid } from '@/components/blocks/mermaid'
 import { docs, pages } from '@source'
 
 import { i18nDocsConfig, routing } from './i18n/routing'

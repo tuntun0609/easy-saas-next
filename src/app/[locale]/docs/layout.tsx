@@ -5,7 +5,7 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs'
 import { RootProvider } from 'fumadocs-ui/provider'
 import { useLocale, useTranslations } from 'next-intl'
 
-import { UserButton } from '@/components/user-button'
+import { UserButton } from '@/components/blocks/user-button'
 import { fumadocsUiTranslations } from '@/lib/i18n/fumadocs-ui-translation'
 import { routing } from '@/lib/i18n/routing'
 import { docsSource } from '@/lib/source'

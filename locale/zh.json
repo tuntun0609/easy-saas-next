@@ -27,7 +27,7 @@
     "github": "使用Github账号登录",
     "agree": "登录即表示同意我们的服务条款和隐私政策"
   },
-  "Price": {
+  "Pricing": {
     "title": "简单灵活的价格方案",
     "description": "选择最适合您业务需求的方案，随时可以升级",
     "free": {

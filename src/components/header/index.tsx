@@ -15,10 +15,10 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 
-import { LocaleSwitch } from '../locale-switch'
+import { LocaleSwitch } from '../blocks/locale-switch'
+import { UserButton } from '../blocks/user-button'
 import ThemeToggle from '../theme/theme-toggle'
 import { Button } from '../ui/button'
-import { UserButton } from '../user-button'
 
 export const Header = () => {
   const t = useTranslations('Header')

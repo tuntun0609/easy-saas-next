@@ -9,7 +9,7 @@ import { useTheme } from 'next-themes'
 import { defaultMdxComponents, getPageSource } from '@/lib/source'
 import { cn } from '@/lib/utils'
 
-import { Mermaid } from '../mermaid'
+import { Mermaid } from '../blocks/mermaid'
 
 import style from './index.module.css'
 

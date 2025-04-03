@@ -10,9 +10,9 @@ import { toast } from 'sonner'
 import { authClient } from '@/lib/auth-client'
 import { cn } from '@/lib/utils'
 
-import { Button } from '../ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
-import { useUser } from '../user-provider'
+import { Button } from '../../ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '../../ui/popover'
+import { useUser } from '../../user-provider'
 
 export const UserButton = ({
   className,
