@@ -4,6 +4,7 @@ import { ArrowRight, Book } from 'lucide-react'
 import { Locale, useLocale, useTranslations } from 'next-intl'
 
 import { Hero, type HeroProps } from '@/components/hero'
+import { Mermaid } from '@/components/mermaid'
 import { Price, PriceTier } from '@/components/price'
 import { UnderlineText } from '@/components/underline-text'
 
@@ -112,6 +113,27 @@ export default function Home() {
 
   return (
     <>
+      <Mermaid
+        chart={`
+graph TD;
+subgraph AA [Consumers]
+A[Mobile app];
+B[Web app];
+C[Node.js client];
+end
+subgraph BB [Services]
+E[REST API];
+F[GraphQL API];
+G[SOAP API];
+end
+Z[GraphQL API];
+A --> Z;
+B --> Z;
+C --> Z;
+Z --> E;
+Z --> F;
+Z --> G;`}
+      />
       <Hero
         buttons={[
           {

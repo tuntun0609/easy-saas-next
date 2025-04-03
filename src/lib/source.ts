@@ -1,7 +1,9 @@
 import { loader } from 'fumadocs-core/source'
+import fumaDefaultMdxComponents from 'fumadocs-ui/mdx'
 import { isNil } from 'lodash-es'
 import { Locale } from 'next-intl'
 
+import { Mermaid } from '@/components/mermaid'
 import { docs, pages } from '@source'
 
 import { i18nDocsConfig, routing } from './i18n/routing'
@@ -34,4 +36,9 @@ export const getPageSource = (slug: string, locale?: Locale) => {
   return (
     matchedPages.find(page => isNil(page.lang) || page.lang === defaultLocale) || matchedPages[0]
   )
+}
+
+export const defaultMdxComponents = {
+  ...fumaDefaultMdxComponents,
+  Mermaid,
 }

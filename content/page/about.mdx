@@ -4,7 +4,6 @@ slug: about
 
 # About
 
-
 ## 首页
 
 content
@@ -23,8 +22,8 @@ const a = 1
 Hello World
 </Callout>
 
-
-```mermaid
+<Mermaid
+chart={`
 graph TD;
 subgraph AA [Consumers]
 A[Mobile app];
@@ -43,5 +42,5 @@ C --> Z;
 Z --> E;
 Z --> F;
 Z --> G;
-```
-
+`}
+/>

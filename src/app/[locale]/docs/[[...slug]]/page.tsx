@@ -1,9 +1,9 @@
-import defaultMdxComponents, { createRelativeLink } from 'fumadocs-ui/mdx'
+import { createRelativeLink } from 'fumadocs-ui/mdx'
 import { DocsPage, DocsBody, DocsDescription, DocsTitle } from 'fumadocs-ui/page'
 import { notFound } from 'next/navigation'
 import { getLocale } from 'next-intl/server'
 
-import { docsSource } from '@/lib/source'
+import { defaultMdxComponents, docsSource } from '@/lib/source'
 
 export default async function Page(props: { params: Promise<{ slug?: string[] }> }) {
   const locale = await getLocale()

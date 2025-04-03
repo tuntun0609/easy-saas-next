@@ -1,4 +1,3 @@
-import { remarkMermaid } from '@theguild/remark-mermaid'
 import { remarkAdmonition } from 'fumadocs-core/mdx-plugins'
 import { defineDocs, defineConfig, defineCollections } from 'fumadocs-mdx/config'
 import { Locale } from 'next-intl'
@@ -28,12 +27,7 @@ export default defineConfig({
       },
       inline: 'tailing-curly-colon',
     },
-    remarkPlugins: defaultPlugins => [
-      ...defaultPlugins,
-      remarkMath,
-      remarkAdmonition,
-      remarkMermaid,
-    ],
+    remarkPlugins: defaultPlugins => [...defaultPlugins, remarkMath, remarkAdmonition],
     rehypePlugins: defaultPlugins => [...defaultPlugins, rehypeKatex],
   },
 })
