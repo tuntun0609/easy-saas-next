@@ -5,7 +5,9 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs'
 import { RootProvider } from 'fumadocs-ui/provider'
 import { useLocale, useTranslations } from 'next-intl'
 
+import { LocaleSwitch } from '@/components/blocks/locale-switch'
 import { UserButton } from '@/components/blocks/user-button'
+import ThemeToggle from '@/components/theme/theme-toggle'
 import { fumadocsUiTranslations } from '@/lib/i18n/fumadocs-ui-translation'
 import { routing } from '@/lib/i18n/routing'
 import { docsSource } from '@/lib/source'
@@ -37,8 +39,14 @@ export default function Layout({ children }: { children: ReactNode }) {
             sidebar={{
               prefetch: false,
               footer: (
-                <div className="mt-2 flex w-full items-center">
-                  <UserButton size="large" showName />
+                <div className="flex flex-col gap-2">
+                  <div className="flex justify-between">
+                    <LocaleSwitch />
+                    <ThemeToggle />
+                  </div>
+                  <div className="mt-2 flex w-full items-center">
+                    <UserButton size="large" showName />
+                  </div>
                 </div>
               ),
             }}

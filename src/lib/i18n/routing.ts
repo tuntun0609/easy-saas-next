@@ -5,9 +5,6 @@ export const routing = defineRouting({
   locales: ['en', 'zh'],
   defaultLocale: 'zh',
   localePrefix: 'as-needed',
-  pathnames: {
-    '/docs': '/docs',
-  },
 })
 
 export const i18nDocsConfig: I18nConfig = {

@@ -2,6 +2,7 @@ import { ArrowRight, Book } from 'lucide-react'
 import { Locale, useLocale, useTranslations } from 'next-intl'
 
 import { UnderlineText } from '@/components/blocks/underline-text'
+import { Footer } from '@/components/footer'
 import { Hero, type HeroProps } from '@/components/hero'
 import { Pricing } from '@/components/pricing'
 
@@ -38,11 +39,11 @@ export default function Home() {
       },
       title: (
         <>
-          Make your{' '}
+          Make your SaaS Application easier with
           <UnderlineText lineColor="#9810fa7f" className="text-purple-500">
-            SaaS Application
-          </UnderlineText>{' '}
-          easier
+            {' '}
+            Easy SaaS Next
+          </UnderlineText>
         </>
       ),
       description:
@@ -81,6 +82,7 @@ export default function Home() {
         {...hero[locale]}
       />
       <Pricing />
+      <Footer />
     </>
   )
 }

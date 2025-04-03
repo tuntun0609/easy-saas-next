@@ -56,5 +56,15 @@
       "prioritySupport": "优先支持",
       "customService": "定制化服务"
     }
+  },
+  "Footer": {
+    "slogan": "使用最先进的技术构建你的SaaS应用",
+    "copyright": "© {year} Easy Saas Next 版权所有",
+    "privacyPolicy": "隐私政策",
+    "docs": "文档",
+    "about": "关于",
+    "features": "功能",
+    "pricing": "定价",
+    "contact": "联系"
   }
 }

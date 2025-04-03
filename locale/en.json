@@ -56,5 +56,15 @@
       "prioritySupport": "Priority Support",
       "customService": "Custom Services"
     }
+  },
+  "Footer": {
+    "slogan": "Build your SaaS application with the latest technology",
+    "copyright": "© {year} Easy Saas Next All rights reserved",
+    "privacyPolicy": "Privacy Policy",
+    "docs": "Docs",
+    "about": "About",
+    "features": "Features",
+    "pricing": "Pricing",
+    "contact": "Contact"
   }
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import { Check, ChevronDown, Globe } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'

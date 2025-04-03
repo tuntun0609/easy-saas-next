@@ -14,6 +14,7 @@ export const Pricing = ({ className, style }: { className?: string; style?: CSSP
       id: 'free',
       name: t('free.name'),
       description: t('free.description'),
+      currency: '$',
       price: 0,
       features: [
         { name: t('features.tutorials'), included: true },
@@ -31,6 +32,7 @@ export const Pricing = ({ className, style }: { className?: string; style?: CSSP
       id: 'standard',
       name: t('standard.name'),
       description: t('standard.description'),
+      currency: '$',
       price: 9.9,
       features: [
         { name: t('features.tutorials'), included: true },
@@ -66,7 +68,7 @@ export const Pricing = ({ className, style }: { className?: string; style?: CSSP
     },
   ]
   return (
-    <div className={cn('container px-8 lg:px-0', className)} style={style}>
+    <div id="pricing" className={cn('container px-8 lg:px-0', className)} style={style}>
       <PriceCmp title={t('title')} description={t('description')} tiers={priceTiers} />
     </div>
   )
