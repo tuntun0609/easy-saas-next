@@ -38,7 +38,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: { params: Promise<{ slug?: string[] }> }) {
   const params = await props.params
-  const page = docsSource.getPage(params.slug)
+  const locale = await getLocale()
+  const page = docsSource.getPage(params.slug, locale)
   if (!page) notFound()
 
   return {

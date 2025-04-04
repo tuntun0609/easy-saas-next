@@ -8,7 +8,7 @@ export const Footer = () => {
 
   return (
     <FooterBlock
-      className="mt-12"
+      className="mt-24"
       logo={
         <Link
           style={{

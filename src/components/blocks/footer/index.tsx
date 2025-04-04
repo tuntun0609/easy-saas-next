@@ -51,7 +51,7 @@ export const Footer: FC<FooterProps> = ({
   style,
 }) => {
   return (
-    <footer className={cn('w-full py-8', className)} style={style}>
+    <footer className={cn('w-full', className)} style={style}>
       <div className="mb-8 flex flex-col items-start justify-between px-8 lg:flex-row">
         {/* 左侧Logo、标语和社交媒体 */}
         <div className="mb-6 lg:mb-0">
@@ -89,7 +89,7 @@ export const Footer: FC<FooterProps> = ({
       </div>
 
       {/* 页脚底部部分 */}
-      <div className="flex flex-col items-center justify-between border-t border-gray-200 px-8 pt-6 lg:flex-row dark:border-gray-800">
+      <div className="flex flex-col items-center justify-between border-t border-gray-200 px-8 py-6 lg:flex-row dark:border-gray-800">
         {/* 版权信息 */}
         <div className="text-sm text-gray-600 dark:text-gray-400">{copyright}</div>
 

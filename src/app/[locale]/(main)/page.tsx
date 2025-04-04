@@ -3,7 +3,6 @@ import { Locale, useLocale, useTranslations } from 'next-intl'
 
 import { FAQ } from '@/components/FAQ'
 import { UnderlineText } from '@/components/blocks/underline-text'
-import { Footer } from '@/components/footer'
 import { Hero, type HeroProps } from '@/components/hero'
 import { Pricing } from '@/components/pricing'
 
@@ -84,7 +83,6 @@ export default function Home() {
       />
       <FAQ />
       <Pricing className="mt-24" />
-      <Footer />
     </>
   )
 }

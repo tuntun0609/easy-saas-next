@@ -1,0 +1,42 @@
+import { MetadataRoute } from 'next'
+
+import { routing } from '@/lib/i18n/routing'
+import { docsSource } from '@/lib/source'
+
+// Adapt this as necessary
+const host = process.env.BASE_URL || 'http://localhost:3000'
+
+type ChangeFrequency =
+  | 'always'
+  | 'hourly'
+  | 'daily'
+  | 'weekly'
+  | 'monthly'
+  | 'yearly'
+  | 'never'
+  | undefined
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const staticPages = ['', '/pricing', '/login', '/about']
+
+  const pagesSiteMap = staticPages.flatMap(page => {
+    return routing.locales.map(locale => ({
+      url: `${host}${locale === routing.defaultLocale ? '' : `/${locale}`}${page}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as ChangeFrequency,
+      priority: page === '' ? 1.0 : 0.8,
+    }))
+  })
+
+  const docsSiteMap = routing.locales.flatMap(locale => {
+    const localPages = docsSource.getPages(locale)
+    return localPages.map(page => ({
+      url: `${host}${page.url}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as ChangeFrequency,
+      priority: 0.8,
+    }))
+  })
+
+  return [...pagesSiteMap, ...docsSiteMap]
+}
