@@ -1,7 +1,7 @@
 import { formats } from '@/lib/i18n/request'
 import { routing } from '@/lib/i18n/routing'
 
-import messages from '../../locale/zh.json'
+import messages from '../../locale/zh.ts'
 
 declare module 'next-intl' {
   interface AppConfig {
