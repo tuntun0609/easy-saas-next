@@ -33,7 +33,6 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
 export async function generateStaticParams() {
   return docsSource.generateParams().map(item => ({
     slug: item.slug,
-    locale: item.lang,
   }))
 }
 
