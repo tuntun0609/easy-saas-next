@@ -13,13 +13,16 @@ export default async function BlogListPage() {
       <h1 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text pt-12 text-center text-3xl font-bold text-transparent drop-shadow-sm">
         博客文章
       </h1>
-      <div className="grid grid-cols-1 gap-4 pt-12 pb-24 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col space-y-4 pt-12 pb-24">
         {allBlog.map((blog, index) => (
           <BlogCard
             key={index}
             title={blog.data.title}
             link={blog.url}
-            date={dayjs(blog.data.lastModified ?? '').format('YYYY-MM-DD')}
+            date={dayjs(blog.data.date ?? blog.data.lastModified ?? new Date()).format(
+              'YYYY-MM-DD'
+            )}
+            cover={blog.data.cover}
           />
         ))}
       </div>

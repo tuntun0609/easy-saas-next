@@ -1,5 +1,5 @@
 import { remarkAdmonition } from 'fumadocs-core/mdx-plugins'
-import { defineDocs, defineConfig, defineCollections } from 'fumadocs-mdx/config'
+import { defineDocs, defineConfig, defineCollections, frontmatterSchema } from 'fumadocs-mdx/config'
 import { Locale } from 'next-intl'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
@@ -11,6 +11,13 @@ export const docs = defineDocs({
 
 export const blog = defineDocs({
   dir: 'content/blog',
+  docs: {
+    schema: frontmatterSchema.extend({
+      author: z.string().optional(),
+      date: z.date().optional(),
+      cover: z.string().optional(),
+    }),
+  },
 })
 
 export const pages = defineCollections({
