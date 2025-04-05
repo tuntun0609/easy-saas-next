@@ -7,6 +7,7 @@ const zh = {
     logout: '退出登录',
     pending: '加载中...',
     authError: '登录失败，请稍后再试',
+    blog: '博客',
   },
   HomePage: {
     light: '明亮',
@@ -84,6 +85,9 @@ const zh = {
         answer: 'Easy SaaS Next是一个基于Nextjs的SaaS应用框架，可以帮助开发者快速构建SaaS应用。',
       },
     ],
+  },
+  Blog: {
+    toc: '目录',
   },
 }
 

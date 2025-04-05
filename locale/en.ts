@@ -9,6 +9,7 @@ const en: Messages = {
     logout: 'Logout',
     pending: 'Loading...',
     authError: 'Login failed, please try again later',
+    blog: 'Blog',
   },
   HomePage: {
     light: 'Light',
@@ -89,6 +90,9 @@ const en: Messages = {
           'Easy SaaS Next is a SaaS application framework based on Nextjs, helping developers build SaaS applications quickly.',
       },
     ],
+  },
+  Blog: {
+    toc: 'Table of Contents',
   },
 }
 

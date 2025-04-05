@@ -1,5 +1,6 @@
 'use client'
 
+import { ReactNode } from 'react'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
@@ -23,6 +24,34 @@ import { Button } from '../ui/button'
 export const Header = () => {
   const t = useTranslations('Header')
 
+  /**
+   * label: 标题
+   * link: 链接
+   * render: 渲染内容，如果设置则忽略 link 和 label
+   */
+  const headerConfig: {
+    label: ReactNode
+    link?: string
+    render?: ReactNode
+  }[] = [
+    {
+      label: t('docs'),
+      link: '/docs',
+    },
+    {
+      label: t('blog'),
+      link: '/blog',
+    },
+    {
+      label: t('pricing'),
+      link: '/pricing',
+    },
+    {
+      label: t('about'),
+      link: '/about',
+    },
+  ]
+
   return (
     <header className="sticky top-0 z-50 flex h-16 items-center justify-between bg-transparent px-4 backdrop-blur-sm">
       <div className="flex items-center">
@@ -36,7 +65,7 @@ export const Header = () => {
           Easy Saas Next
         </Link>
         <nav className="hidden items-center gap-1 lg:flex">
-          <Link prefetch={false} href="/docs">
+          {/* <Link prefetch={false} href="/docs">
             <Button variant="ghost">{t('docs')}</Button>
           </Link>
           <Link prefetch={false} href="/pricing">
@@ -44,7 +73,24 @@ export const Header = () => {
           </Link>
           <Link prefetch={false} href="/about">
             <Button variant="ghost">{t('about')}</Button>
-          </Link>
+          </Link> */}
+          {headerConfig.map((item, index) => {
+            if (item.render) {
+              return item.render
+            }
+            if (item.link) {
+              return (
+                <Link key={index} prefetch={false} href={item.link}>
+                  <Button variant="ghost">{item.label}</Button>
+                </Link>
+              )
+            }
+            return (
+              <Button key={index} variant="ghost">
+                {item.label}
+              </Button>
+            )
+          })}
         </nav>
       </div>
 
@@ -74,7 +120,32 @@ export const Header = () => {
 
             <DrawerDescription />
             <nav className="flex flex-col gap-4 px-6 py-4 font-bold">
-              <Link
+              {headerConfig.map((item, index) => {
+                if (item.render) {
+                  return item.render
+                }
+                if (item.link) {
+                  return (
+                    <Link
+                      key={index}
+                      prefetch={false}
+                      className="hover:text-primary/70 flex items-center gap-2 transition-colors duration-300"
+                      href={item.link}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                }
+                return (
+                  <div
+                    className="hover:text-primary/70 flex cursor-pointer items-center gap-2 transition-colors duration-300"
+                    key={index}
+                  >
+                    {item.label}
+                  </div>
+                )
+              })}
+              {/* <Link
                 prefetch={false}
                 className="hover:text-primary/70 flex items-center gap-2 transition-colors duration-300"
                 href="/docs"
@@ -94,7 +165,7 @@ export const Header = () => {
                 href="/about"
               >
                 {t('about')}
-              </Link>
+              </Link> */}
             </nav>
             <DrawerFooter className="gap-4">
               <div className="flex items-center justify-between">

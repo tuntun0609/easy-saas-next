@@ -67,7 +67,6 @@ export function Mermaid({ chart }: { chart: string }): ReactElement {
           chart.replaceAll('\\n', '\n'),
           containerRef.current
         )
-        console.log('change')
         containerRef.current.innerHTML = svg
       } catch (error) {
         console.error('Error while rendering mermaid', error)

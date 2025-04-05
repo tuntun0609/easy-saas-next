@@ -9,6 +9,10 @@ export const docs = defineDocs({
   dir: 'content/docs',
 })
 
+export const blog = defineDocs({
+  dir: 'content/blog',
+})
+
 export const pages = defineCollections({
   type: 'doc',
   dir: 'content/page',

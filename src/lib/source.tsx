@@ -1,10 +1,12 @@
+import type { ImgHTMLAttributes } from 'react'
 import { loader } from 'fumadocs-core/source'
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom'
 import fumaDefaultMdxComponents from 'fumadocs-ui/mdx'
 import { isNil } from 'lodash-es'
 import { Locale } from 'next-intl'
 
 import { Mermaid } from '@/components/blocks/mermaid'
-import { docs, pages } from '@source'
+import { blog, docs, pages } from '@source'
 
 import { i18nDocsConfig, routing } from './i18n/routing'
 
@@ -12,6 +14,13 @@ export const docsSource = loader({
   i18n: i18nDocsConfig,
   baseUrl: '/docs',
   source: docs.toFumadocsSource(),
+})
+
+export const blogSource = loader({
+  i18n: i18nDocsConfig,
+  baseUrl: '/blog',
+  source: blog.toFumadocsSource(),
+  lastModifiedTime: 'git',
 })
 
 // 从文件名中提取语言代码
@@ -62,5 +71,6 @@ export const getPageSource = (slug: string, locale?: Locale) => {
 
 export const defaultMdxComponents = {
   ...fumaDefaultMdxComponents,
+  img: (props: ImgHTMLAttributes<HTMLImageElement>) => <ImageZoom {...props} />,
   Mermaid,
 }
