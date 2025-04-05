@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { getLocale } from 'next-intl/server'
 
 import BlogCard from '@/components/blog-card'
@@ -18,7 +19,7 @@ export default async function BlogListPage() {
             key={index}
             title={blog.data.title}
             link={blog.url}
-            date={blog.data.lastModified?.toLocaleDateString() ?? ''}
+            date={dayjs(blog.data.lastModified ?? '').format('YYYY-MM-DD')}
           />
         ))}
       </div>

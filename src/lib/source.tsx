@@ -20,7 +20,6 @@ export const blogSource = loader({
   i18n: i18nDocsConfig,
   baseUrl: '/blog',
   source: blog.toFumadocsSource(),
-  lastModifiedTime: 'git',
 })
 
 // 从文件名中提取语言代码
