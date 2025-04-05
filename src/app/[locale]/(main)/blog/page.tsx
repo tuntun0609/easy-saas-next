@@ -9,7 +9,7 @@ export default async function BlogListPage() {
   const allBlog = blogSource.getPages(locale)
 
   return (
-    <div className="container">
+    <div className="container max-w-3xl">
       <h1 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text pt-12 text-center text-3xl font-bold text-transparent drop-shadow-sm">
         博客文章
       </h1>

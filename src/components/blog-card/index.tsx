@@ -25,7 +25,7 @@ export default function BlogCard({
     <Link href={link}>
       <Card
         className={cn(
-          'border-none shadow-none transition-colors duration-200 hover:bg-gray-100 dark:border dark:hover:bg-gray-800',
+          'shadow-none transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800',
           className
         )}
       >
