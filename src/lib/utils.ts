@@ -21,3 +21,26 @@ export const withMiddlewares = (
     return middleware(acc)
   }, config)
 }
+
+// 将毫秒数转换为分钟数或者秒数
+export const convertReadingTime = ({
+  time,
+  secondUnit = '秒',
+  minuteUnit = '分钟',
+}: {
+  time: number
+  secondUnit?: string
+  minuteUnit?: string
+}) => {
+  // 将毫秒转换为分钟
+  const minutes = Math.round(time / 60000)
+  // 将毫秒转换为秒
+  const seconds = Math.round(time / 1000)
+
+  // 如果不足1分钟，返回秒数
+  if (minutes < 1) {
+    return `${seconds} ${secondUnit}`
+  }
+  // 否则返回分钟数
+  return `${minutes} ${minuteUnit}`
+}

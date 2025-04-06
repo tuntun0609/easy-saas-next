@@ -126,14 +126,15 @@ export const Header = () => {
                 }
                 if (item.link) {
                   return (
-                    <Link
-                      key={index}
-                      prefetch={false}
-                      className="hover:text-primary/70 flex items-center gap-2 transition-colors duration-300"
-                      href={item.link}
-                    >
-                      {item.label}
-                    </Link>
+                    <DrawerClose asChild key={index}>
+                      <Link
+                        prefetch={false}
+                        className="hover:text-primary/70 flex items-center gap-2 transition-colors duration-300"
+                        href={item.link}
+                      >
+                        {item.label}
+                      </Link>
+                    </DrawerClose>
                   )
                 }
                 return (
@@ -145,27 +146,6 @@ export const Header = () => {
                   </div>
                 )
               })}
-              {/* <Link
-                prefetch={false}
-                className="hover:text-primary/70 flex items-center gap-2 transition-colors duration-300"
-                href="/docs"
-              >
-                {t('docs')}
-              </Link>
-              <Link
-                prefetch={false}
-                className="hover:text-primary/70 flex items-center gap-2 transition-colors duration-300"
-                href="/pricing"
-              >
-                {t('pricing')}
-              </Link>
-              <Link
-                prefetch={false}
-                className="hover:text-primary/70 flex items-center gap-2 transition-colors duration-300"
-                href="/about"
-              >
-                {t('about')}
-              </Link> */}
             </nav>
             <DrawerFooter className="gap-4">
               <div className="flex items-center justify-between">

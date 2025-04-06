@@ -88,6 +88,8 @@ const zh = {
   },
   Blog: {
     toc: '目录',
+    secondUnit: '秒',
+    minuteUnit: '分钟',
   },
 }
 

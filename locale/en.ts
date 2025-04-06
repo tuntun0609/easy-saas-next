@@ -93,6 +93,8 @@ const en: Messages = {
   },
   Blog: {
     toc: 'Table of Contents',
+    secondUnit: 's',
+    minuteUnit: 'm',
   },
 }
 

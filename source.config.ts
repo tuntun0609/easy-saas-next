@@ -1,8 +1,11 @@
 import { remarkAdmonition } from 'fumadocs-core/mdx-plugins'
 import { defineDocs, defineConfig, defineCollections, frontmatterSchema } from 'fumadocs-mdx/config'
+import { toString } from 'mdast-util-to-string'
 import { Locale } from 'next-intl'
+import getReadingTime from 'reading-time'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
+import { Plugin } from 'unified'
 import { z } from 'zod'
 
 export const docs = defineDocs({
@@ -29,9 +32,19 @@ export const pages = defineCollections({
   }),
 })
 
+const remarkReadingTime: Plugin = () => {
+  return function (tree, { data }) {
+    const textOnPage = toString(tree)
+    const readingTime = getReadingTime(textOnPage)
+
+    data.minutesRead = readingTime.time
+  }
+}
+
 export default defineConfig({
   lastModifiedTime: 'git',
   mdxOptions: {
+    valueToExport: ['minutesRead'],
     rehypeCodeOptions: {
       themes: {
         light: 'github-light',
@@ -39,7 +52,12 @@ export default defineConfig({
       },
       inline: 'tailing-curly-colon',
     },
-    remarkPlugins: defaultPlugins => [...defaultPlugins, remarkMath, remarkAdmonition],
+    remarkPlugins: defaultPlugins => [
+      remarkReadingTime,
+      remarkMath,
+      remarkAdmonition,
+      ...defaultPlugins,
+    ],
     rehypePlugins: defaultPlugins => [...defaultPlugins, rehypeKatex],
   },
 })

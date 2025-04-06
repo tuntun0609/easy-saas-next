@@ -2,8 +2,8 @@ import { ArrowRight, Book } from 'lucide-react'
 import { Locale, useLocale, useTranslations } from 'next-intl'
 
 import { FAQ } from '@/components/FAQ'
+import { Hero, type HeroProps } from '@/components/blocks/hero'
 import { UnderlineText } from '@/components/blocks/underline-text'
-import { Hero, type HeroProps } from '@/components/hero'
 import { Pricing } from '@/components/pricing'
 
 export default function Home() {

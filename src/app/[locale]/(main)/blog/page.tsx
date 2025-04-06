@@ -1,11 +1,13 @@
 import dayjs from 'dayjs'
-import { getLocale } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 import BlogCard from '@/components/blog-card'
 import { blogSource } from '@/lib/source'
+import { convertReadingTime } from '@/lib/utils'
 
 export default async function BlogListPage() {
   const locale = await getLocale()
+  const t = await getTranslations('Blog')
   const allBlog = blogSource.getPages(locale)
 
   return (
@@ -23,6 +25,11 @@ export default async function BlogListPage() {
               'YYYY-MM-DD'
             )}
             cover={blog.data.cover}
+            readTime={convertReadingTime({
+              time: blog.data._exports.minutesRead as number,
+              secondUnit: t('secondUnit'),
+              minuteUnit: t('minuteUnit'),
+            })}
           />
         ))}
       </div>
