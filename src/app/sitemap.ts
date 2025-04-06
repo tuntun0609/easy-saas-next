@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 import { routing } from '@/lib/i18n/routing'
-import { docsSource } from '@/lib/source'
+import { blogSource, docsSource } from '@/lib/source'
 
 // Adapt this as necessary
 const host = process.env.BASE_URL || 'http://localhost:3000'
@@ -17,7 +17,7 @@ type ChangeFrequency =
   | undefined
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ['', '/pricing', '/login', '/about']
+  const staticPages = ['', '/pricing', '/login', '/about', '/blog']
 
   const pagesSiteMap = staticPages.flatMap(page => {
     return routing.locales.map(locale => ({
@@ -38,5 +38,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   })
 
-  return [...pagesSiteMap, ...docsSiteMap]
+  const blogSiteMap = routing.locales.flatMap(locale => {
+    const localPages = blogSource.getPages(locale)
+    return localPages.map(page => ({
+      url: `${host}${page.url}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as ChangeFrequency,
+      priority: 0.8,
+    }))
+  })
+
+  return [...pagesSiteMap, ...docsSiteMap, ...blogSiteMap]
 }
