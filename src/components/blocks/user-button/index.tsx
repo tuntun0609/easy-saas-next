@@ -14,6 +14,8 @@ import { Button } from '../../ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '../../ui/popover'
 import { useUser } from '../../user-provider'
 
+const avatarFallbackUrl = '/icon/avatar.svg'
+
 export const UserButton = ({
   className,
   style,
@@ -73,6 +75,9 @@ export const UserButton = ({
                   alt="user"
                   width={imageSize}
                   height={imageSize}
+                  onError={e => {
+                    e.currentTarget.src = avatarFallbackUrl
+                  }}
                 />
               )}
               {showName && <span className="text-sm">{session.user.name}</span>}
@@ -91,6 +96,9 @@ export const UserButton = ({
                     alt="user"
                     width={imageSize}
                     height={imageSize}
+                    onError={e => {
+                      e.currentTarget.src = avatarFallbackUrl
+                    }}
                   />
                 )}
                 {<span className="text-sm font-bold">{session.user.name}</span>}
@@ -109,6 +117,9 @@ export const UserButton = ({
                   alt="user"
                   width={imageSize}
                   height={imageSize}
+                  onError={e => {
+                    e.currentTarget.src = avatarFallbackUrl
+                  }}
                 />
               )}
               {<span className="text-sm font-bold">{session.user.name}</span>}
