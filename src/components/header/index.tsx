@@ -98,7 +98,7 @@ export const Header = () => {
         <LocaleSwitch className="hidden lg:flex" />
         <ThemeToggle className="hidden lg:flex" />
         <UserButton className="hidden lg:flex" />
-        <Drawer direction="right">
+        <Drawer autoFocus={true} direction="right">
           <DrawerTrigger asChild>
             <Button variant="outline" className="cursor-pointer lg:hidden" size="icon">
               <Menu className="h-5 w-5" />

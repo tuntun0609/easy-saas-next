@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import 'fumadocs-ui/css/neutral.css';
+/* copy from fumadocs-ui/css/black.css, you can change it to other theme */
+@import './fd-theme.css';
 @import 'fumadocs-ui/css/preset.css';
 @import 'katex/dist/katex.min.css';
 

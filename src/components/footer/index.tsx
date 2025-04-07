@@ -37,6 +37,7 @@ export const Footer = () => {
       ]}
       copyright={t('copyright', { year: new Date().getFullYear() })}
       privacyPolicy={{ label: t('privacyPolicy'), href: '/privacy' }}
+      terms={{ label: t('terms'), href: '/terms' }}
     />
   )
 }

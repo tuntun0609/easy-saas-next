@@ -18,6 +18,7 @@ interface FooterProps {
   socialMedia?: NavItem[]
   copyright?: ReactNode
   privacyPolicy?: NavItem
+  terms?: NavItem
   className?: string
   style?: CSSProperties
 }
@@ -47,6 +48,7 @@ export const Footer: FC<FooterProps> = ({
   socialMedia,
   copyright,
   privacyPolicy,
+  terms,
   className,
   style,
 }) => {
@@ -96,6 +98,7 @@ export const Footer: FC<FooterProps> = ({
         {/* 隐私政策链接 */}
         <div className="mt-4 flex space-x-4 lg:mt-0">
           {privacyPolicy && <NavItem href={privacyPolicy.href}>{privacyPolicy.label}</NavItem>}
+          {terms && <NavItem href={terms.href}>{terms.label}</NavItem>}
         </div>
       </div>
     </footer>

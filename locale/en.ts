@@ -69,6 +69,7 @@ const en: Messages = {
     features: 'Features',
     pricing: 'Pricing',
     contact: 'Contact',
+    terms: 'Terms',
   },
   FAQ: {
     title: 'FAQ',

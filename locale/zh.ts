@@ -67,6 +67,7 @@ const zh = {
     features: '功能',
     pricing: '定价',
     contact: '联系',
+    terms: '服务条款',
   },
   FAQ: {
     title: '常见问题',
