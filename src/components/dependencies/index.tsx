@@ -30,6 +30,12 @@ export const Dependencies = () => {
             image: '/icon/drizzle-light.svg',
             darkImage: '/icon/drizzle-dark.svg',
           },
+          {
+            name: 'postgresql',
+            image: '/icon/postgresql.svg',
+            width: 28,
+            height: 28,
+          },
         ]}
       />
     </div>
