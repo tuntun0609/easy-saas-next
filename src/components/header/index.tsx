@@ -65,15 +65,6 @@ export const Header = () => {
           Easy Saas Next
         </Link>
         <nav className="hidden items-center gap-1 lg:flex">
-          {/* <Link prefetch={false} href="/docs">
-            <Button variant="ghost">{t('docs')}</Button>
-          </Link>
-          <Link prefetch={false} href="/pricing">
-            <Button variant="ghost">{t('pricing')}</Button>
-          </Link>
-          <Link prefetch={false} href="/about">
-            <Button variant="ghost">{t('about')}</Button>
-          </Link> */}
           {headerConfig.map((item, index) => {
             if (item.render) {
               return item.render

@@ -87,6 +87,10 @@ const zh = {
       },
     ],
   },
+  Dependencies: {
+    title: '技术栈',
+    description: 'Easy SaaS Next依赖于以下技术',
+  },
   Blog: {
     toc: '目录',
     secondUnit: '秒',

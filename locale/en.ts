@@ -92,6 +92,10 @@ const en: Messages = {
       },
     ],
   },
+  Dependencies: {
+    title: 'Technology Stack',
+    description: 'Easy SaaS Next depends on the following technologies',
+  },
   Blog: {
     toc: 'Table of Contents',
     secondUnit: 's',

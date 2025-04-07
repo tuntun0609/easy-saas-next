@@ -5,6 +5,7 @@ import NextTopLoader from 'nextjs-toploader'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme'
 import { Toaster } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { UserProvider } from '@/components/user-provider'
 import { siteConfig } from '@/config'
 import { routing } from '@/lib/i18n/routing'
@@ -49,8 +50,10 @@ export default async function RootLayout({
               showForHashAnchor={false}
             />
             <ThemeProvider>
-              {children}
-              <Toaster richColors />
+              <TooltipProvider>
+                {children}
+                <Toaster richColors />
+              </TooltipProvider>
             </ThemeProvider>
             <TailwindIndicator />
           </NextIntlClientProvider>
