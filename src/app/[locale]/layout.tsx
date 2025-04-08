@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import NextTopLoader from 'nextjs-toploader'
 
+import { Clarity, GoogleAnalytics, Umami } from '@/components/analytics'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme'
 import { Toaster } from '@/components/ui/sonner'
@@ -58,6 +59,11 @@ export default async function RootLayout({
             <TailwindIndicator />
           </NextIntlClientProvider>
         </UserProvider>
+
+        {/* Analytics */}
+        <GoogleAnalytics />
+        <Umami />
+        <Clarity />
       </body>
     </html>
   )
