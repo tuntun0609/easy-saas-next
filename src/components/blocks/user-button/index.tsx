@@ -3,7 +3,7 @@
 import { CSSProperties } from 'react'
 import { ChevronsUpDown, LogOut } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
@@ -31,6 +31,7 @@ export const UserButton = ({
 }) => {
   const t = useTranslations('Header')
   const pathname = usePathname()
+  const router = useRouter()
   const {
     data: session,
     isPending, //loading state
@@ -40,6 +41,8 @@ export const UserButton = ({
 
   const handleLogout = async () => {
     await authClient.signOut()
+    // 重新验证页面
+    router.refresh()
   }
 
   if (isPending) {
@@ -143,10 +146,14 @@ export const UserButton = ({
 
   return (
     <Link
-      className={cn(className, size === 'large' && 'h-12 w-full')}
+      className={cn(className, size === 'large' && 'w-full')}
       href={pathname === '/' ? '/login' : `/login?callbackURL=${encodeURIComponent(pathname)}`}
     >
-      <Button className={cn(className, size === 'large' && 'h-12 w-full')} style={style}>
+      <Button
+        variant="outline"
+        className={cn(className, size === 'large' && 'h-12 w-full')}
+        style={style}
+      >
         {t('loginIn')}
       </Button>
     </Link>

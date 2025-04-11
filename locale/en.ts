@@ -23,12 +23,13 @@ const en: Messages = {
     getStarted: 'Get Started',
     readDocs: 'Read Docs',
   },
-  LoginPage: {
+  LoginCard: {
     welcome: 'Welcome',
     welcomeDesc: 'Please select a login method to continue',
     google: 'Login with Google',
     github: 'Login with Github',
     agree: 'Login means you agree to our terms of service and privacy policy',
+    private: 'You need to login to access this page',
   },
   Pricing: {
     title: 'Simple and flexible pricing plans',

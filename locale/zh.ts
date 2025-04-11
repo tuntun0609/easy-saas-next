@@ -21,12 +21,13 @@ const zh = {
     getStarted: '立即开始',
     readDocs: '阅读文档',
   },
-  LoginPage: {
+  LoginCard: {
     welcome: '欢迎回来',
     welcomeDesc: '请选择登录方式继续',
     google: '使用Google账号登录',
     github: '使用Github账号登录',
     agree: '登录即表示同意我们的服务条款和隐私政策',
+    private: '需要登录后才能访问',
   },
   Pricing: {
     title: '简单灵活的价格方案',
