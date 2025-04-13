@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Easy SaaS Next
 
-## Getting Started
+一个现代化的、功能丰富的 SaaS 应用模板，基于 Next.js 15 和 React 19 构建。
 
-First, run the development server:
+## 项目简介
+
+Easy SaaS Next 是一个完整的 SaaS 应用程序模板，提供了丰富的开箱即用功能，帮助开发者快速构建高质量的 SaaS 产品。项目采用最新的 Web 技术栈，确保了良好的性能、可维护性和用户体验。
+
+## 功能特点
+
+- 🚀 基于 Next.js 15 的现代化应用架构
+- 🎨 集成 Tailwind CSS 的响应式 UI 设计
+- 📚 内置文档系统 (fumadocs)
+- 🔐 用户认证系统 (better-auth)
+- 🌐 国际化支持 (next-intl)
+- 📊 数据库集成 (drizzle-orm)
+- 🎯 AI 功能支持
+- 📝 Markdown/MDX 支持
+- 🔥 实时加载进度条
+- 🌓 深色模式支持
+- ⚡ Turbopack 支持
+
+## 技术栈
+
+### 核心框架
+- Next.js 15
+- React 19
+- TypeScript
+
+### UI/样式
+- Tailwind CSS
+- shadcn/ui 组件
+- Lucide React 图标
+
+### 数据库和ORM
+- PostgreSQL
+- Drizzle ORM
+
+### 开发工具
+- ESLint
+- Prettier
+- Husky
+- TypeScript
+- Lint-staged
+
+### 功能组件
+- next-intl (国际化)
+- next-themes (主题切换)
+- ai (AI 功能集成)
+- resend (邮件服务)
+- zod (数据验证)
+
+### 文档支持
+- fumadocs-core
+- fumadocs-mdx
+- fumadocs-ui
+- KaTeX (数学公式)
+- Mermaid (图表)
+
+## 快速开始
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# 安装依赖
+pnpm install
+
+# 启动开发服务器
 pnpm dev
-# or
-bun dev
+
+# 构建生产版本
+pnpm build
+
+# 启动生产服务器
+pnpm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 数据库操作
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 启动数据库管理界面
+pnpm db:studio
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 执行数据库迁移
+pnpm db:migrate
+```
 
-## Learn More
+## 代码质量
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# 运行代码检查
+pnpm lint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 自动修复代码问题
+pnpm lint:fix
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 检查 TypeScript 类型
+pnpm ts:check
+```
 
-## Deploy on Vercel
+## 许可证
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+私有项目 - 保留所有权利
