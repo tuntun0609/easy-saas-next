@@ -33,8 +33,8 @@ function TooltipTrigger({ ...props }: React.ComponentProps<typeof TooltipPrimiti
 function TooltipContent({
   className,
   sideOffset = 0,
-  children,
   isArrow = true,
+  children,
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Content> & {
   isArrow?: boolean
