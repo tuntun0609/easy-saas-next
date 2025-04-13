@@ -16,9 +16,9 @@ export const Dependencies = () => {
           {
             name: 'shadcn/ui',
             image: '/icon/shadcn-light.svg',
+            darkImage: '/icon/shadcn-dark.svg',
             width: 28,
             height: 28,
-            darkImage: '/icon/shadcn-dark.svg',
           },
           {
             name: 'better-auth',
@@ -34,7 +34,7 @@ export const Dependencies = () => {
             name: 'postgresql',
             image: '/icon/postgresql.svg',
             width: 28,
-            height: 28,
+            height: 29,
           },
         ]}
       />

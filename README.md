@@ -18,6 +18,10 @@ Easy SaaS Next 是一个完整的 SaaS 应用程序模板，提供了丰富的�
 - 📝 Markdown/MDX 支持
 - 🔥 实时加载进度条
 - 🌓 深色模式支持
+- Seo
+  - metadata
+  - sitemap
+  - robots
 - ⚡ Turbopack 支持
 
 ## 技术栈
