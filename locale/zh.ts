@@ -96,6 +96,8 @@ const zh = {
     toc: '目录',
     secondUnit: '秒',
     minuteUnit: '分钟',
+    author: '作者',
+    date: '日期',
   },
 }
 

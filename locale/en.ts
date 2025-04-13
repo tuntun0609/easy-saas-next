@@ -101,6 +101,8 @@ const en: Messages = {
     toc: 'Table of Contents',
     secondUnit: 's',
     minuteUnit: 'm',
+    author: 'Author',
+    date: 'Date',
   },
 }
 
