@@ -104,6 +104,12 @@ const en: Messages = {
     author: 'Author',
     date: 'Date',
   },
+  Admin: {
+    title: 'Admin',
+    UsersManagement: {
+      title: 'Users Management',
+    },
+  },
 }
 
 export default en

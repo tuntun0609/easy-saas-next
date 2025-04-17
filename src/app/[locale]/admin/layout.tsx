@@ -38,9 +38,9 @@ const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <SidebarProvider>
       <AdminSidebar />
-      <main className="flex-1">
+      <main className="flex-1 p-4">
         <SidebarTrigger />
-        {children}
+        <section className="p-2">{children}</section>
       </main>
     </SidebarProvider>
   )

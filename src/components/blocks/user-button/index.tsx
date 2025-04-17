@@ -1,6 +1,6 @@
 'use client'
 
-import { CSSProperties } from 'react'
+import { ComponentProps, CSSProperties } from 'react'
 import { ChevronsUpDown, LogOut } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
@@ -22,12 +22,14 @@ export const UserButton = ({
   imageSize = 32,
   showName = false,
   size = 'default',
+  popoverContentProps = {},
 }: {
   className?: string
   style?: CSSProperties
   imageSize?: number
   showName?: boolean
   size?: 'default' | 'large'
+  popoverContentProps?: ComponentProps<typeof PopoverContent>
 }) => {
   const t = useTranslations('Header')
   const pathname = usePathname()
@@ -110,7 +112,10 @@ export const UserButton = ({
             </Button>
           )}
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-0">
+        <PopoverContent
+          {...popoverContentProps}
+          className={cn('w-[200px] p-0', popoverContentProps.className)}
+        >
           <div className="border-b p-2">
             <div className="flex items-center gap-2">
               {session.user.image && (

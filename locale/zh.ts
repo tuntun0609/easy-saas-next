@@ -99,6 +99,12 @@ const zh = {
     author: '作者',
     date: '日期',
   },
+  Admin: {
+    title: '管理后台',
+    UsersManagement: {
+      title: '用户管理',
+    },
+  },
 }
 
 export default zh
