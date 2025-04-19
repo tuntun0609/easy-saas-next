@@ -1,13 +1,13 @@
 'use client'
 
-import { Check, ChevronDown, Globe } from 'lucide-react'
+import { Check, ChevronDown, Languages } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { usePathname, useRouter } from '@/lib/i18n/navigation'
-import { routing } from '@/lib/i18n/routing'
+import { usePathname, useRouter } from '@/i18n/navigation'
+import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
 
 export const LocaleSwitch = ({ className }: { className?: string }) => {
@@ -31,7 +31,7 @@ export const LocaleSwitch = ({ className }: { className?: string }) => {
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="ghost" className={cn('flex items-center gap-2', className)}>
-          <Globe className="h-4 w-4" />
+          <Languages className="h-4 w-4" />
           {t('locale', { locale: locale })}
           <ChevronDown className="h-4 w-4" />
         </Button>

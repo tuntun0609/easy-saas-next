@@ -8,7 +8,7 @@ import { Locale } from 'next-intl'
 import { Mermaid } from '@/components/blocks/mermaid'
 import { blog, docs, pages } from '@source'
 
-import { i18nDocsConfig, routing } from './i18n/routing'
+import { i18nDocsConfig, routing } from '../i18n/routing'
 
 export const docsSource = loader({
   i18n: i18nDocsConfig,

@@ -5,7 +5,7 @@ import { withMiddlewares } from '@/lib/utils'
 
 import type { NextConfig } from 'next'
 
-const withNextIntl = createNextIntlPlugin('./src/lib/i18n/request.ts')
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 const withMDX = createMDX()
 
 const nextConfig: NextConfig = {

@@ -1,5 +1,5 @@
-import { formats } from '@/lib/i18n/request'
-import { routing } from '@/lib/i18n/routing'
+import { formats } from '@/i18n/request.js'
+import { routing } from '@/i18n/routing.js'
 
 import messages from '../../locale/zh.ts'
 

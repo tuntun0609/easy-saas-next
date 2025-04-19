@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-import { routing } from '@/lib/i18n/routing'
+import { routing } from '@/i18n/routing'
 import { blogSource, docsSource } from '@/lib/source'
 
 // Adapt this as necessary

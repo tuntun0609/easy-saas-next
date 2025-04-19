@@ -9,7 +9,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { UserProvider } from '@/components/user-provider'
 import { siteConfig } from '@/config'
-import { routing } from '@/lib/i18n/routing'
+import { routing } from '@/i18n/routing'
 import { caveat, geistMono, geistSans } from '@/style/font'
 
 import type { Metadata } from 'next'

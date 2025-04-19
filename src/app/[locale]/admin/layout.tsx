@@ -3,8 +3,8 @@ import { getLocale } from 'next-intl/server'
 
 import { AdminSidebar } from '@/components/admin-sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { redirect } from '@/i18n/navigation'
 import { auth } from '@/lib/auth'
-import { redirect } from '@/lib/i18n/navigation'
 
 const adminEmails = process.env.ADMIN_USER_EMAIL?.split(',') || []
 
@@ -40,7 +40,7 @@ const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
       <AdminSidebar />
       <main className="flex-1 p-4">
         <SidebarTrigger />
-        <section className="p-2">{children}</section>
+        <section>{children}</section>
       </main>
     </SidebarProvider>
   )
