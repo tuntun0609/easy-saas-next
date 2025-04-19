@@ -1,9 +1,12 @@
 'use client'
 
-import { Home } from 'lucide-react'
+import { Users } from 'lucide-react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
+import { LocaleSwitch } from '@/components/blocks/locale-switch'
+import { UserButton } from '@/components/blocks/user-button'
+import ThemeToggle from '@/components/theme/theme-toggle'
 import {
   Sidebar,
   SidebarContent,
@@ -18,10 +21,6 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
-import { LocaleSwitch } from '../blocks/locale-switch'
-import { UserButton } from '../blocks/user-button'
-import ThemeToggle from '../theme/theme-toggle'
-
 export function AdminSidebar() {
   const t = useTranslations('Admin')
   const { open, isMobile } = useSidebar()
@@ -31,10 +30,8 @@ export function AdminSidebar() {
       <SidebarHeader>
         {open && (
           <div
-            style={{
-              fontFamily: 'var(--font-caveat)',
-            }}
-            className="text-center text-3xl font-bold text-purple-600"
+            style={{ fontFamily: 'var(--font-caveat)' }}
+            className="text-center text-3xl font-bold whitespace-nowrap text-purple-600"
           >
             Easy Saas Next
           </div>
@@ -48,7 +45,7 @@ export function AdminSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <Link href="/admin/users">
-                    <Home />
+                    <Users />
                     <span>{t('UsersManagement.title')}</span>
                   </Link>
                 </SidebarMenuButton>

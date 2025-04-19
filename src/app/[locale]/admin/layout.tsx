@@ -1,10 +1,11 @@
 import { headers } from 'next/headers'
 import { getLocale } from 'next-intl/server'
 
-import { AdminSidebar } from '@/components/admin-sidebar'
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { redirect } from '@/i18n/navigation'
 import { auth } from '@/lib/auth'
+
+import { AdminSidebar } from './sidebar'
 
 const adminEmails = process.env.ADMIN_USER_EMAIL?.split(',') || []
 
