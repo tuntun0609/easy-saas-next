@@ -20,12 +20,12 @@ interface DataTableProps<TData, TValue> {
   currentPage: number
 }
 
-export function DataTable<TData, TValue>({
+export const DataTable = <TData, TValue>({
   columns,
   data,
   pageCount,
   currentPage,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData, TValue>) => {
   const router = useRouter()
   const searchParams = useSearchParams()
 

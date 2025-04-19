@@ -103,6 +103,18 @@ const zh = {
     title: '管理后台',
     UsersManagement: {
       title: '用户管理',
+      columns: {
+        name: '用户名',
+        email: '邮箱',
+        emailVerified: '邮箱验证',
+        createdAt: '创建时间',
+        verified: '已验证',
+        unverified: '未验证',
+        deleteUser: '删除用户',
+        deleteConfirm: '确定要删除该用户吗？',
+        deleteSuccess: '删除成功',
+        deleteError: '删除失败',
+      },
     },
   },
 }

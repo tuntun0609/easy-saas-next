@@ -1,13 +1,21 @@
 'use client'
 
 import { ColumnDef } from '@tanstack/react-table'
+import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
 import { MoreHorizontal, UserX } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { Messages, useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { deleteUser } from '@/service/user'
+
+// 配置 dayjs 插件
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 export type User = {
   id: string
@@ -18,8 +26,9 @@ export type User = {
   createdAt: Date
 }
 
-function ActionsCell({ user }: { user: User }) {
+const ActionsCell = ({ user }: { user: User }) => {
   const router = useRouter()
+  const t = useTranslations('Admin.UsersManagement.columns')
 
   return (
     <Popover>
@@ -34,19 +43,19 @@ function ActionsCell({ user }: { user: User }) {
             variant="ghost"
             className="flex items-center justify-start text-red-600 hover:text-red-700"
             onClick={async () => {
-              if (confirm('确定要删除该用户吗？')) {
+              if (confirm(t('deleteConfirm'))) {
                 try {
                   await deleteUser(user.id)
-                  toast.success('删除成功')
+                  toast.success(t('deleteSuccess'))
                   router.refresh()
                 } catch (_error) {
-                  toast.error('删除失败')
+                  toast.error(t('deleteError'))
                 }
               }
             }}
           >
             <UserX className="mr-2 h-4 w-4" />
-            删除用户
+            {t('deleteUser')}
           </Button>
         </div>
       </PopoverContent>
@@ -54,31 +63,48 @@ function ActionsCell({ user }: { user: User }) {
   )
 }
 
+type ColumnsTranslationKey = keyof Messages['Admin']['UsersManagement']['columns']
+
+const HeaderCell = ({ translationKey }: { translationKey: ColumnsTranslationKey }) => {
+  const t = useTranslations('Admin.UsersManagement.columns')
+  return t(translationKey)
+}
+
+const EmailVerifiedCell = ({ verified }: { verified: boolean }) => {
+  const t = useTranslations('Admin.UsersManagement.columns')
+  return (
+    <div className={verified ? 'text-green-600' : 'text-red-600'}>
+      {verified ? t('verified') : t('unverified')}
+    </div>
+  )
+}
+
 export const columns: ColumnDef<User>[] = [
   {
     accessorKey: 'name',
-    header: '用户名',
+    header: () => <HeaderCell translationKey="name" />,
   },
   {
     accessorKey: 'email',
-    header: '邮箱',
+    header: () => <HeaderCell translationKey="email" />,
   },
   {
     accessorKey: 'emailVerified',
-    header: '邮箱验证',
-    cell: ({ row }) => (
-      <div className={row.original.emailVerified ? 'text-green-600' : 'text-red-600'}>
-        {row.original.emailVerified ? '已验证' : '未验证'}
-      </div>
-    ),
+    header: () => <HeaderCell translationKey="emailVerified" />,
+    cell: ({ row }) => <EmailVerifiedCell verified={row.original.emailVerified} />,
   },
   {
     accessorKey: 'createdAt',
-    header: '创建时间',
-    cell: ({ row }) => new Date(row.original.createdAt).toLocaleDateString('zh-CN'),
+    header: () => <HeaderCell translationKey="createdAt" />,
+    cell: ({ row }) =>
+      dayjs(row.original.createdAt).tz(dayjs.tz.guess()).format('YYYY-MM-DD HH:mm'),
   },
   {
     id: 'actions',
-    cell: ({ row }) => <ActionsCell user={row.original} />,
+    cell: ({ row }) => (
+      <div className="flex justify-center">
+        <ActionsCell user={row.original} />
+      </div>
+    ),
   },
 ]

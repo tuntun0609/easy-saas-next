@@ -108,6 +108,18 @@ const en: Messages = {
     title: 'Admin',
     UsersManagement: {
       title: 'Users Management',
+      columns: {
+        name: 'Username',
+        email: 'Email',
+        emailVerified: 'Email Verification',
+        createdAt: 'Created At',
+        verified: 'Verified',
+        unverified: 'Unverified',
+        deleteUser: 'Delete User',
+        deleteConfirm: 'Are you sure you want to delete this user?',
+        deleteSuccess: 'User deleted successfully',
+        deleteError: 'Failed to delete user',
+      },
     },
   },
 }

@@ -18,7 +18,9 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
+import { LocaleSwitch } from '../blocks/locale-switch'
 import { UserButton } from '../blocks/user-button'
+import ThemeToggle from '../theme/theme-toggle'
 
 export function AdminSidebar() {
   const t = useTranslations('Admin')
@@ -57,6 +59,10 @@ export function AdminSidebar() {
         <SidebarGroup />
       </SidebarContent>
       <SidebarFooter>
+        <div className="flex items-center justify-between">
+          <LocaleSwitch />
+          <ThemeToggle />
+        </div>
         <UserButton
           popoverContentProps={isMobile ? {} : { side: 'right', align: 'end', sideOffset: 12 }}
           size={open ? 'large' : 'default'}

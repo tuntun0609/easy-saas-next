@@ -1,4 +1,5 @@
 import { count } from 'drizzle-orm'
+import { getTranslations } from 'next-intl/server'
 
 import { db } from '@/db'
 import { user } from '@/db/schema'
@@ -14,6 +15,7 @@ export default async function UsersPage({
   const { page = 1 } = await searchParams
   const pageSize = 10
   const currentPage = Number(page)
+  const t = await getTranslations('Admin.UsersManagement')
 
   // 获取总用户数
   const [{ value: total }] = await db.select({ value: count() }).from(user)
@@ -27,7 +29,7 @@ export default async function UsersPage({
 
   return (
     <div className="container mx-auto py-10">
-      <h1 className="mb-6 text-2xl font-bold">用户管理</h1>
+      <h1 className="mb-6 text-2xl font-bold">{t('title')}</h1>
       <DataTable
         columns={columns}
         data={users}
