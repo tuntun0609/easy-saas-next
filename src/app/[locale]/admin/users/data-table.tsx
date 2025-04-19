@@ -43,14 +43,14 @@ export const DataTable = <TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <div className="overflow-hidden rounded-md border bg-white">
+      <div className="bg-background overflow-hidden rounded-md border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map(headerGroup => (
-              <TableRow key={headerGroup.id} className="bg-gray-50 hover:bg-gray-50">
+              <TableRow key={headerGroup.id} className="bg-muted/50 hover:bg-muted/50">
                 {headerGroup.headers.map(header => {
                   return (
-                    <TableHead key={header.id} className="p-4 font-semibold text-gray-600">
+                    <TableHead key={header.id} className="text-foreground/70 p-4 font-semibold">
                       {header.isPlaceholder
                         ? null
                         : flexRender(header.column.columnDef.header, header.getContext())}
@@ -63,7 +63,7 @@ export const DataTable = <TData, TValue>({
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map(row => (
-                <TableRow key={row.id} className="hover:bg-gray-50">
+                <TableRow key={row.id} className="border-muted hover:bg-muted/50">
                   {row.getVisibleCells().map(cell => (
                     <TableCell key={cell.id} className="p-4">
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -73,7 +73,10 @@ export const DataTable = <TData, TValue>({
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-32 text-center text-gray-500">
+                <TableCell
+                  colSpan={columns.length}
+                  className="text-muted-foreground h-32 text-center"
+                >
                   暂无数据
                 </TableCell>
               </TableRow>
@@ -82,7 +85,7 @@ export const DataTable = <TData, TValue>({
         </Table>
       </div>
       <div className="flex items-center justify-between px-2">
-        <div className="text-sm text-gray-500">
+        <div className="text-muted-foreground text-sm">
           第 {currentPage} 页，共 {pageCount} 页
         </div>
         <div className="flex items-center space-x-2">
@@ -91,7 +94,7 @@ export const DataTable = <TData, TValue>({
             size="sm"
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage <= 1}
-            className={'hover:bg-gray-100'}
+            className="hover:bg-muted"
           >
             上一页
           </Button>
@@ -100,7 +103,7 @@ export const DataTable = <TData, TValue>({
             size="sm"
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage >= pageCount}
-            className="hover:bg-gray-100"
+            className="hover:bg-muted"
           >
             下一页
           </Button>

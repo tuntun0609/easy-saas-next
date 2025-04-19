@@ -33,15 +33,15 @@ const ActionsCell = ({ user }: { user: User }) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="ghost" className="h-8 w-8 p-0">
+        <Button variant="ghost" className="h-8 w-8 p-0 dark:hover:bg-gray-800">
           <MoreHorizontal className="h-4 w-4" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-40 px-1 py-2">
+      <PopoverContent className="w-40 px-1 py-2 dark:border-gray-800 dark:bg-gray-900">
         <div className="flex flex-col gap-1">
           <Button
             variant="ghost"
-            className="flex items-center justify-start text-red-600 hover:text-red-700"
+            className="flex items-center justify-start text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:bg-gray-800 dark:hover:text-red-300"
             onClick={async () => {
               if (confirm(t('deleteConfirm'))) {
                 try {
@@ -73,7 +73,9 @@ const HeaderCell = ({ translationKey }: { translationKey: ColumnsTranslationKey 
 const EmailVerifiedCell = ({ verified }: { verified: boolean }) => {
   const t = useTranslations('Admin.UsersManagement.columns')
   return (
-    <div className={verified ? 'text-green-600' : 'text-red-600'}>
+    <div
+      className={verified ? 'text-green-500 dark:text-green-400' : 'text-red-500 dark:text-red-400'}
+    >
       {verified ? t('verified') : t('unverified')}
     </div>
   )
