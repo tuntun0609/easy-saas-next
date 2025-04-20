@@ -56,10 +56,12 @@ export function AdminSidebar() {
         <SidebarGroup />
       </SidebarContent>
       <SidebarFooter>
-        <div className="flex items-center justify-between">
-          <LocaleSwitch />
-          <ThemeToggle />
-        </div>
+        {open && (
+          <div className="flex items-center justify-between">
+            <LocaleSwitch />
+            <ThemeToggle />
+          </div>
+        )}
         <UserButton
           popoverContentProps={isMobile ? {} : { side: 'right', align: 'end', sideOffset: 12 }}
           size={open ? 'large' : 'default'}

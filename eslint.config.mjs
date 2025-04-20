@@ -96,6 +96,7 @@ const eslintConfig = [
         },
       ],
       '@next/next/no-img-element': 'off',
+      '@typescript-eslint/ban-ts-comment': 'off',
     },
   },
 ]

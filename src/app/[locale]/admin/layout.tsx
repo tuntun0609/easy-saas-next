@@ -3,11 +3,9 @@ import { getLocale } from 'next-intl/server'
 
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { redirect } from '@/i18n/navigation'
-import { auth } from '@/lib/auth'
+import { auth, isAdmin } from '@/lib/auth'
 
 import { AdminSidebar } from './sidebar'
-
-const adminEmails = process.env.ADMIN_USER_EMAIL?.split(',') || []
 
 const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
   const locale = await getLocale()
@@ -29,7 +27,7 @@ const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
     return null
   }
 
-  if (!adminEmails.includes(session.user.email)) {
+  if (!isAdmin(session.user)) {
     redirect({
       href: '/',
       locale,

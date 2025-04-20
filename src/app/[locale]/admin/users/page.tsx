@@ -1,8 +1,8 @@
-import { count } from 'drizzle-orm'
+import { headers } from 'next/headers'
 import { getTranslations } from 'next-intl/server'
 
-import { db } from '@/db'
-import { user } from '@/db/schema'
+import { auth, isAdmin } from '@/lib/auth'
+import { User } from '@/type/user'
 
 import { columns } from './columns'
 import { DataTable } from './data-table'
@@ -17,15 +17,21 @@ export default async function UsersPage({
   const currentPage = Number(page)
   const t = await getTranslations('Admin.UsersManagement')
 
-  // 获取总用户数
-  const [{ value: total }] = await db.select({ value: count() }).from(user)
+  const { users, total } = await auth.api.listUsers({
+    headers: await headers(),
+    query: {
+      limit: pageSize,
+      offset: (currentPage - 1) * pageSize,
+      sortBy: 'createdAt',
+      sortDirection: 'desc',
+    },
+  })
 
-  // 获取当前页用户列表
-  const users = await db
-    .select()
-    .from(user)
-    .limit(pageSize)
-    .offset((currentPage - 1) * pageSize)
+  users.forEach(user => {
+    if (isAdmin(user as User)) {
+      user.role = 'admin'
+    }
+  })
 
   return (
     <div className="container mx-auto py-10">

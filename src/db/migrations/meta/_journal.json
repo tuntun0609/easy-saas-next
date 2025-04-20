@@ -8,6 +8,13 @@
       "when": 1743307412048,
       "tag": "0000_typical_screwball",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1745123847385,
+      "tag": "0001_amazing_bishop",
+      "breakpoints": true
     }
   ]
 }

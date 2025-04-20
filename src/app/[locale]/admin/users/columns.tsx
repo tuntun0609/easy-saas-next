@@ -1,67 +1,19 @@
 'use client'
 
 import { ColumnDef } from '@tanstack/react-table'
+import { UserWithRole } from 'better-auth/plugins'
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
-import { MoreHorizontal, UserX } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { Shield } from 'lucide-react'
 import { Messages, useTranslations } from 'next-intl'
-import { toast } from 'sonner'
 
-import { Button } from '@/components/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { deleteUser } from '@/service/user'
+import { ActionsCell } from './actions-cell'
+import { BanStatusCell } from './ban-status-cell'
 
 // 配置 dayjs 插件
 dayjs.extend(utc)
 dayjs.extend(timezone)
-
-export type User = {
-  id: string
-  name: string
-  email: string
-  emailVerified: boolean
-  image: string | null
-  createdAt: Date
-}
-
-const ActionsCell = ({ user }: { user: User }) => {
-  const router = useRouter()
-  const t = useTranslations('Admin.UsersManagement.columns')
-
-  return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="ghost" className="h-8 w-8 p-0 dark:hover:bg-gray-800">
-          <MoreHorizontal className="h-4 w-4" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-40 px-1 py-2 dark:border-gray-800 dark:bg-gray-900">
-        <div className="flex flex-col gap-1">
-          <Button
-            variant="ghost"
-            className="flex items-center justify-start text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:bg-gray-800 dark:hover:text-red-300"
-            onClick={async () => {
-              if (confirm(t('deleteConfirm'))) {
-                try {
-                  await deleteUser(user.id)
-                  toast.success(t('deleteSuccess'))
-                  router.refresh()
-                } catch (_error) {
-                  toast.error(t('deleteError'))
-                }
-              }
-            }}
-          >
-            <UserX className="mr-2 h-4 w-4" />
-            {t('deleteUser')}
-          </Button>
-        </div>
-      </PopoverContent>
-    </Popover>
-  )
-}
 
 type ColumnsTranslationKey = keyof Messages['Admin']['UsersManagement']['columns']
 
@@ -70,6 +22,17 @@ const HeaderCell = ({ translationKey }: { translationKey: ColumnsTranslationKey 
   return t(translationKey)
 }
 
+const AdminBadge = () => {
+  const t = useTranslations('Admin.UsersManagement.columns')
+  return (
+    <div className="inline-flex items-center gap-1 rounded bg-blue-100 px-2 py-1 text-xs text-blue-700 dark:bg-blue-900 dark:text-blue-300">
+      <Shield className="h-3 w-3" />
+      {t('admin')}
+    </div>
+  )
+}
+
+// 邮箱验证状态
 const EmailVerifiedCell = ({ verified }: { verified: boolean }) => {
   const t = useTranslations('Admin.UsersManagement.columns')
   return (
@@ -81,10 +44,16 @@ const EmailVerifiedCell = ({ verified }: { verified: boolean }) => {
   )
 }
 
-export const columns: ColumnDef<User>[] = [
+export const columns: ColumnDef<UserWithRole>[] = [
   {
     accessorKey: 'name',
     header: () => <HeaderCell translationKey="name" />,
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        {row.original.name}
+        {row.original.role === 'admin' && <AdminBadge />}
+      </div>
+    ),
   },
   {
     accessorKey: 'email',
@@ -94,6 +63,11 @@ export const columns: ColumnDef<User>[] = [
     accessorKey: 'emailVerified',
     header: () => <HeaderCell translationKey="emailVerified" />,
     cell: ({ row }) => <EmailVerifiedCell verified={row.original.emailVerified} />,
+  },
+  {
+    accessorKey: 'banned',
+    header: () => <HeaderCell translationKey="banStatus" />,
+    cell: ({ row }) => <BanStatusCell user={row.original} />,
   },
   {
     accessorKey: 'createdAt',
