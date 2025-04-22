@@ -70,6 +70,6 @@ export const getPageSource = (slug: string, locale?: Locale) => {
 
 export const defaultMdxComponents = {
   ...fumaDefaultMdxComponents,
-  img: (props: ImgHTMLAttributes<HTMLImageElement>) => <ImageZoom {...props} />,
+  img: (props: ImgHTMLAttributes<HTMLImageElement>) => <ImageZoom {...(props as any)} />,
   Mermaid,
 }

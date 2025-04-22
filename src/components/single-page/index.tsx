@@ -7,8 +7,6 @@ import { useLocale } from 'next-intl'
 import { defaultMdxComponents, getPageSource } from '@/lib/source'
 import { cn } from '@/lib/utils'
 
-import { Mermaid } from '../blocks/mermaid'
-
 const SinglePage = ({ slug, className }: { slug: string; className?: string }) => {
   const locale = useLocale()
   const page = getPageSource(slug, locale)
@@ -22,7 +20,6 @@ const SinglePage = ({ slug, className }: { slug: string; className?: string }) =
       <MDXContent
         components={{
           ...defaultMdxComponents,
-          Mermaid,
         }}
       />
     </DocsBody>

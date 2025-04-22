@@ -1,11 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-/* copy from fumadocs-ui/css/black.css, you can change it to other theme */
-@import './fd-theme.css';
+@import 'fumadocs-ui/css/shadcn.css';
 @import 'fumadocs-ui/css/preset.css';
 @import 'katex/dist/katex.min.css';
-
-@source '../../node_modules/fumadocs-ui/dist/**/*.js';
 
 @custom-variant dark (&:is(.dark *));
 
