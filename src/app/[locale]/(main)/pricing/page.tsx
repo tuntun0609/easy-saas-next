@@ -1,7 +1,7 @@
-import { Pricing } from '@/components/pricing'
+import Pricing from '@/components/pricing'
 
 const PricingPage = () => {
-  return <Pricing className="pt-12" />
+  return <Pricing />
 }
 
 export default PricingPage

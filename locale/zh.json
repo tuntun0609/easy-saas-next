@@ -29,36 +29,6 @@
     "agree": "登录即表示同意我们的服务条款和隐私政策",
     "private": "需要登录后才能访问"
   },
-  "Pricing": {
-    "title": "简单灵活的价格方案",
-    "description": "选择最适合您业务需求的方案，随时可以升级",
-    "free": {
-      "name": "免费版",
-      "description": "适合初学者学习",
-      "buttonText": "立即学习"
-    },
-    "standard": {
-      "name": "标准版",
-      "description": "适合开发者和小型团队",
-      "buttonText": "获取源码",
-      "popularText": "热门选择"
-    },
-    "premium": {
-      "name": "高级版",
-      "description": "适合专业团队和企业需求",
-      "price": "详情请联系",
-      "buttonText": "联系我们"
-    },
-    "features": {
-      "tutorials": "视频教程",
-      "basicComponents": "基础组件",
-      "communitySupport": "社区支持",
-      "fullSourceCode": "完整源码",
-      "advancedComponents": "高级组件",
-      "prioritySupport": "优先支持",
-      "customService": "定制化服务"
-    }
-  },
   "Footer": {
     "slogan": "使用最先进的技术构建你的SaaS应用",
     "copyright": "© {year} Easy Saas Next 版权所有",
@@ -136,6 +106,28 @@
         "reasonRequired": "请输入封禁原因",
         "invalidBanDuration": "请输入有效的封禁时长（大于等于1天）"
       }
+    }
+  },
+  "pricing": {
+    "title": "订阅计划",
+    "description": "选择最适合您业务需求的方案，随时可以升级",
+    "free": {
+      "name": "免费",
+      "per": "每位用户",
+      "getStarted": "开始学习",
+      "videoTutorial": "视频教程",
+      "docs": "查阅网站文档"
+    },
+    "pro": {
+      "everythingInFree": "免费计划的所有内容",
+      "name": "付费版",
+      "per": "每位用户",
+      "getStarted": "开始构建",
+      "everythingInPro": " 订阅版中的功能:",
+      "sourceCode": "项目源码",
+      "group": "付费群组",
+      "support": "售后支持(答疑)",
+      "update": "持续更新"
     }
   }
 }

@@ -29,36 +29,6 @@
     "agree": "Login means you agree to our terms of service and privacy policy",
     "private": "You need to login to access this page"
   },
-  "Pricing": {
-    "title": "Simple and flexible pricing plans",
-    "description": "Choose the plan that best suits your business needs, and upgrade at any time",
-    "free": {
-      "name": "Free",
-      "description": "Perfect for beginners",
-      "buttonText": "Start Learning"
-    },
-    "standard": {
-      "name": "Standard",
-      "description": "For developers and small teams",
-      "buttonText": "Get Source Code",
-      "popularText": "Popular Choice"
-    },
-    "premium": {
-      "name": "Premium",
-      "description": "For professional teams and enterprises",
-      "price": "Contact Us",
-      "buttonText": "Contact Us"
-    },
-    "features": {
-      "tutorials": "Video Tutorials",
-      "basicComponents": "Basic Components",
-      "communitySupport": "Community Support",
-      "fullSourceCode": "Full Source Code",
-      "advancedComponents": "Advanced Components",
-      "prioritySupport": "Priority Support",
-      "customService": "Custom Services"
-    }
-  },
   "Footer": {
     "slogan": "Build your SaaS application with the latest technology",
     "copyright": "© {year} Easy Saas Next All rights reserved",
@@ -136,6 +106,28 @@
         "reasonRequired": "Please enter the ban reason",
         "invalidBanDuration": "Please enter a valid ban duration (greater than or equal to 1 day)"
       }
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "Choose the most suitable solution for your business needs and can be upgraded at any time",
+    "free": {
+      "name": "Free",
+      "per": "Every user",
+      "getStarted": "Start learning",
+      "videoTutorial": "Video tutorial",
+      "docs": "Read the website documentation"
+    },
+    "pro": {
+      "everythingInFree": "Every In Free",
+      "name": "Pro",
+      "per": "Every user",
+      "getStarted": "Start building",
+      "everythingInPro": "Features in the subscription version:",
+      "sourceCode": "Project source code",
+      "group": "Paid Groups",
+      "support": "After-sales support (Q&A)",
+      "update": "Continuous update"
     }
   }
 }
