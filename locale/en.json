@@ -129,5 +129,10 @@
       "support": "After-sales support (Q&A)",
       "update": "Continuous update"
     }
+  },
+  "Integrations": {
+    "title": "Using the most advanced technology stack",
+    "description": "Connect seamlessly with popular platforms and services to enhance your workflow.",
+    "learnMore": "Learn More"
   }
 }

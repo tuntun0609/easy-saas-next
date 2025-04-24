@@ -129,5 +129,10 @@
       "support": "售后支持(答疑)",
       "update": "持续更新"
     }
+  },
+  "Integrations": {
+    "title": "使用最先进的技术栈",
+    "description": "与流行的平台和服务无缝连接以增强您的工作流程。\n",
+    "learnMore": "获取更多信息"
   }
 }

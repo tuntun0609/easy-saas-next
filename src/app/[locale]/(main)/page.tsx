@@ -5,6 +5,7 @@ import { FAQ } from '@/components/FAQ'
 import { Hero, type HeroProps } from '@/components/blocks/hero'
 import { UnderlineText } from '@/components/blocks/underline-text'
 import { Dependencies } from '@/components/dependencies'
+import IntegrationsSection from '@/components/integrations'
 import Pricing from '@/components/pricing'
 
 export default function Home() {
@@ -83,6 +84,7 @@ export default function Home() {
         {...hero[locale]}
       />
       <Dependencies />
+      <IntegrationsSection />
       <FAQ />
       {/* <Pricing className="mt-24" /> */}
       <Pricing />
