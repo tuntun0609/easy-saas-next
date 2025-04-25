@@ -133,6 +133,12 @@
   "Integrations": {
     "title": "Using the most advanced technology stack",
     "description": "Connect seamlessly with popular platforms and services to enhance your workflow.",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "nextjs": "Next.js is a React Framework for building full-stack web applications",
+    "react": "React is a JavaScript library for building user interfaces",
+    "tailwind": "Tailwind CSS is a CSS framework for building modern websites",
+    "shadcn": "shadcn/ui is a component library for building modern websites",
+    "better-auth": "better-auth is an authentication system for building modern websites",
+    "postgresql": "postgresql is an open source relational database management system"
   }
 }

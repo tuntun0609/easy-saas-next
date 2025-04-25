@@ -1,14 +1,16 @@
 import * as React from 'react'
 import { ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
-import { Gemini, Replit, MagicUI, VSCodium, MediaWiki, GooglePaLM } from '@/components/logos'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { siteConfig } from '@/config'
 
 export default function IntegrationsSection() {
   const t = useTranslations('Integrations')
+
   return (
     <section>
       <div className="py-32">
@@ -20,45 +22,90 @@ export default function IntegrationsSection() {
 
           <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <IntegrationCard
-              title="Google Gemini"
-              description="Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente."
+              link={`https://nextjs.org/?ref=${siteConfig.siteUrl}`}
+              title="Nextjs"
+              description={t('nextjs')}
             >
-              <Gemini />
+              <Image
+                className="dark:hidden"
+                src="/icon/nextjs-light.svg"
+                alt="Nextjs"
+                width={40}
+                height={40}
+              />
+              <Image
+                className="hidden dark:block"
+                src="/icon/nextjs-dark.svg"
+                alt="Nextjs"
+                width={40}
+                height={40}
+              />
             </IntegrationCard>
 
             <IntegrationCard
-              title="Replit"
-              description="Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente."
+              link={`https://react.dev/?ref=${siteConfig.siteUrl}`}
+              title="React"
+              description={t('react')}
             >
-              <Replit />
+              <Image src="/icon/React.svg" alt="React" width={40} height={40} />
             </IntegrationCard>
 
             <IntegrationCard
-              title="Magic UI"
-              description="Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente."
+              link={`https://tailwindcss.com/?ref=${siteConfig.siteUrl}`}
+              title="Tailwind CSS"
+              description={t('tailwind')}
             >
-              <MagicUI />
+              <Image src="/icon/tailwindcss.svg" alt="Tailwind CSS" width={40} height={40} />
             </IntegrationCard>
 
             <IntegrationCard
-              title="VSCodium"
-              description="Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente."
+              link={`https://ui.shadcn.com/?ref=${siteConfig.siteUrl}`}
+              title="shadcn/ui"
+              description={t('shadcn')}
             >
-              <VSCodium />
+              <Image
+                className="dark:hidden"
+                src="/icon/shadcn-light.svg"
+                alt="shadcn/ui"
+                width={28}
+                height={28}
+              />
+              <Image
+                className="hidden dark:block"
+                src="/icon/shadcn-dark.svg"
+                alt="shadcn/ui"
+                width={28}
+                height={28}
+              />
             </IntegrationCard>
 
             <IntegrationCard
-              title="MediaWiki"
-              description="Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente."
+              link={`https://www.better-auth.com/?ref=${siteConfig.siteUrl}`}
+              title="better-auth"
+              description={t('better-auth')}
             >
-              <MediaWiki />
+              <Image
+                className="dark:hidden"
+                src="/icon/better-auth-light.svg"
+                alt="better-auth"
+                width={40}
+                height={40}
+              />
+              <Image
+                className="hidden rounded-full dark:block"
+                src="/icon/better-auth-dark.svg"
+                alt="better-auth"
+                width={40}
+                height={40}
+              />
             </IntegrationCard>
 
             <IntegrationCard
-              title="Google PaLM"
-              description="Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente."
+              link={`https://www.postgresql.org/?ref=${siteConfig.siteUrl}`}
+              title="postgresql"
+              description={t('postgresql')}
             >
-              <GooglePaLM />
+              <Image src="/icon/postgresql.svg" alt="postgresql" width={32} height={33} />
             </IntegrationCard>
           </div>
         </div>
@@ -82,7 +129,7 @@ const IntegrationCard = ({
   return (
     <Card className="p-6">
       <div className="relative">
-        <div className="*:size-10">{children}</div>
+        <div className="flex h-10 items-center justify-start">{children}</div>
 
         <div className="space-y-2 py-6">
           <h3 className="text-base font-medium">{title}</h3>
