@@ -29,7 +29,7 @@
     "agree": "登录即表示同意我们的服务条款和隐私政策",
     "private": "需要登录后才能访问"
   },
-  "Footer": {
+  "footer": {
     "slogan": "使用最先进的技术构建你的SaaS应用",
     "copyright": "© {year} Easy Saas Next 版权所有",
     "privacyPolicy": "隐私政策",
@@ -38,7 +38,12 @@
     "features": "功能",
     "pricing": "定价",
     "contact": "联系",
-    "terms": "服务条款"
+    "terms": "服务条款",
+    "legal": "法律",
+    "license": "许可证",
+    "security": "安全",
+    "product": "产品",
+    "allRightsReserved": "版权所有"
   },
   "FAQ": {
     "title": "常见问题",

@@ -53,7 +53,7 @@ export const Header = () => {
   ]
 
   return (
-    <header className="sticky top-0 z-50 flex h-16 items-center justify-between bg-transparent px-4 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b bg-transparent px-4 backdrop-blur-sm">
       <div className="flex items-center">
         <Link
           style={{

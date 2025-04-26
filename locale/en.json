@@ -29,7 +29,7 @@
     "agree": "Login means you agree to our terms of service and privacy policy",
     "private": "You need to login to access this page"
   },
-  "Footer": {
+  "footer": {
     "slogan": "Build your SaaS application with the latest technology",
     "copyright": "© {year} Easy Saas Next All rights reserved",
     "privacyPolicy": "Privacy Policy",
@@ -38,7 +38,12 @@
     "features": "Features",
     "pricing": "Pricing",
     "contact": "Contact",
-    "terms": "Terms"
+    "terms": "Terms",
+    "legal": "Legal",
+    "license": "License",
+    "security": "Security",
+    "product": "Product",
+    "allRightsReserved": "All rights reserved"
   },
   "FAQ": {
     "title": "FAQ",
