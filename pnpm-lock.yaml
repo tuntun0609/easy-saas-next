@@ -14,6 +14,12 @@ importers:
       '@next/third-parties':
         specifier: ^15.3.1
         version: 15.3.1(next@15.3.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+      '@orama/stopwords':
+        specifier: ^3.1.6
+        version: 3.1.6
+      '@orama/tokenizers':
+        specifier: ^3.1.6
+        version: 3.1.6
       '@radix-ui/react-accordion':
         specifier: ^1.2.8
         version: 1.2.8(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1212,6 +1218,14 @@ packages:
   '@orama/orama@3.1.6':
     resolution: {integrity: sha512-qtSrqCqRU93SjEBedz987tvWao1YQSELjBhGkHYGVP7Dg0lBWP6d+uZEIt5gxTAYio/YWWlhivmRABvRfPLmnQ==}
     engines: {node: '>= 16.0.0'}
+
+  '@orama/stopwords@3.1.6':
+    resolution: {integrity: sha512-m25K03OR8/kfr63mr+SAQJIKSHY5K63kFvRwBovORc2LkrdQxjrSwDNuQUV40obII30mwL3Kv+KoBYYDQJ6FxA==}
+    engines: {node: '>= 16.0.0'}
+
+  '@orama/tokenizers@3.1.6':
+    resolution: {integrity: sha512-WAvM0XAytTkWX27XvqHkEeiO8ev5+Dqo/6xGzHFrRegoYb+dEapR8M7ao97qR5ZaHLIqnC+JweBhkiToQ6Gkbw==}
+    engines: {node: '>= 18.0.0'}
 
   '@peculiar/asn1-android@2.3.16':
     resolution: {integrity: sha512-a1viIv3bIahXNssrOIkXZIlI2ePpZaNmR30d4aBL99mu2rO+mT9D6zBsp7H6eROWGtmwv0Ionp5olJurIo09dw==}
@@ -5755,6 +5769,12 @@ snapshots:
   '@opentelemetry/api@1.9.0': {}
 
   '@orama/orama@3.1.6': {}
+
+  '@orama/stopwords@3.1.6': {}
+
+  '@orama/tokenizers@3.1.6':
+    dependencies:
+      '@orama/orama': 3.1.6
 
   '@peculiar/asn1-android@2.3.16':
     dependencies:

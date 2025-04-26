@@ -18,6 +18,8 @@
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@next/third-parties": "^15.3.1",
+    "@orama/stopwords": "^3.1.6",
+    "@orama/tokenizers": "^3.1.6",
     "@radix-ui/react-accordion": "^1.2.8",
     "@radix-ui/react-checkbox": "^1.2.3",
     "@radix-ui/react-dialog": "^1.1.11",
