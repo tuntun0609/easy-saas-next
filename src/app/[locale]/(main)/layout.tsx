@@ -1,13 +1,14 @@
 import Footer from '@/components/footer'
-import { Header } from '@/components/header'
+import { HeroHeader } from '@/components/hero5-header'
+import { cn } from '@/lib/utils'
 
 import style from './index.module.css'
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <Header />
-      <main className={style.fd}>{children}</main>
+      <HeroHeader />
+      <main className={cn(style.fd, 'overflow-hidden pt-20')}>{children}</main>
       <Footer />
     </>
   )

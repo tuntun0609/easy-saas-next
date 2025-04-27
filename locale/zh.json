@@ -19,7 +19,10 @@
   },
   "Hero": {
     "getStarted": "立即开始",
-    "readDocs": "阅读文档"
+    "readDocs": "阅读文档",
+    "announcement": "😃 即将发布",
+    "title": "使用 Easy SaaS Next 更快构建 SaaS 应用",
+    "description": "在Easy SaaS Next中使用最先进的技术，基于 Nextjs 快速构建你的 SaaS 应用"
   },
   "LoginCard": {
     "welcome": "欢迎回来",
@@ -62,10 +65,6 @@
         "answer": "Easy SaaS Next是一个基于Nextjs的SaaS应用框架，可以帮助开发者快速构建SaaS应用。"
       }
     ]
-  },
-  "Dependencies": {
-    "title": "技术栈",
-    "description": "Easy SaaS Next依赖于以下技术"
   },
   "Blog": {
     "toc": "目录",
@@ -135,7 +134,7 @@
       "update": "持续更新"
     }
   },
-  "Integrations": {
+  "integrations": {
     "title": "使用最先进的技术栈",
     "description": "与流行的平台和服务无缝连接以增强您的工作流程。",
     "learnMore": "获取更多信息",

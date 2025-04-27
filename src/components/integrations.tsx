@@ -9,7 +9,7 @@ import { Card } from '@/components/ui/card'
 import { siteConfig } from '@/config'
 
 export default function IntegrationsSection() {
-  const t = useTranslations('Integrations')
+  const t = useTranslations('integrations')
 
   return (
     <section>
@@ -125,7 +125,7 @@ const IntegrationCard = ({
   children: React.ReactNode
   link?: string
 }) => {
-  const t = useTranslations('Integrations')
+  const t = useTranslations('integrations')
   return (
     <Card className="p-6">
       <div className="relative">
