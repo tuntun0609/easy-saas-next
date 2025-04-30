@@ -12,7 +12,7 @@ export default function IntegrationsSection() {
   const t = useTranslations('integrations')
 
   return (
-    <section>
+    <section id="integrations">
       <div className="py-32">
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">

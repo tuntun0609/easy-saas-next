@@ -3,7 +3,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import NextTopLoader from 'nextjs-toploader'
 
 import { Clarity, GoogleAnalytics, Umami } from '@/components/analytics'
-import { TailwindIndicator } from '@/components/tailwind-indicator'
+import { TailwindIndicator } from '@/components/blocks/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'

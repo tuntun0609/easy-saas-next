@@ -8,6 +8,7 @@ export type PresetType =
   | 'scale'
   | 'blur'
   | 'blur-slide'
+  | 'blur-slide-fade'
   | 'zoom'
   | 'flip'
   | 'bounce'
@@ -56,6 +57,23 @@ const presetVariants: Record<PresetType, Variants> = {
   'blur-slide': {
     hidden: { filter: 'blur(4px)', y: 20 },
     visible: { filter: 'blur(0px)', y: 0 },
+  },
+  'blur-slide-fade': {
+    hidden: {
+      opacity: 0,
+      filter: 'blur(12px)',
+      y: 12,
+    },
+    visible: {
+      opacity: 1,
+      filter: 'blur(0px)',
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.3,
+        duration: 1.5,
+      },
+    },
   },
   zoom: {
     hidden: { scale: 0.5 },
