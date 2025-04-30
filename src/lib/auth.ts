@@ -37,7 +37,7 @@ export const auth = betterAuth({
   session: {
     cookieCache: {
       enabled: true,
-      maxAge: 5 * 60, // Cache duration in seconds
+      maxAge: process.env.NODE_ENV === 'development' ? 0 : 5 * 60, // Cache duration in seconds
     },
   },
 })

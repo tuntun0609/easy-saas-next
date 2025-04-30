@@ -7,7 +7,11 @@
     "logout": "退出登录",
     "pending": "加载中...",
     "authError": "登录失败，请稍后再试",
-    "blog": "博客"
+    "blog": "博客",
+    "account": "账户",
+    "billing": "账单",
+    "notifications": "通知",
+    "dashboard": "仪表盘"
   },
   "HomePage": {
     "light": "明亮",

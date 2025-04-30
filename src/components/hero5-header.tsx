@@ -117,17 +117,20 @@ export const HeroHeader = () => {
                   <LocaleSwitch />
                   <ThemeToggle />
                 </div>
-                <UserButton />
-                {/* <Button asChild size="sm" className={cn(isScrolled && 'lg:hidden')}>
-                  <Link href="#">
-                    <span>Sign Up</span>
-                  </Link>
-                </Button>
-                <Button asChild size="sm" className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                  <Link href="#">
-                    <span>Get Started</span>
-                  </Link>
-                </Button> */}
+                <UserButton
+                  onClickSignIn={() => {
+                    setMenuState(false)
+                  }}
+                  className="hidden sm:block"
+                />
+                <UserButton
+                  onClickSignIn={() => {
+                    setMenuState(false)
+                  }}
+                  showName
+                  size="large"
+                  className="block rounded-sm border sm:hidden"
+                />
               </div>
             </div>
           </div>

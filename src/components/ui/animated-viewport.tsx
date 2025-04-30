@@ -1,7 +1,7 @@
 'use client'
 
 import React, { ReactNode } from 'react'
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants } from 'motion/react'
 
 export type PresetType =
   | 'fade'
@@ -111,7 +111,7 @@ export function AnimatedViewport({
   preset = 'fade',
   once = true,
   amount = 0.3,
-  margin = '0px',
+  margin = '20px',
 }: AnimatedViewportProps) {
   return (
     <motion.div
