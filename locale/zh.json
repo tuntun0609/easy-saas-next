@@ -148,5 +148,15 @@
     "shadcn": "shadcn/ui 是一个用于快速构建现代网站的组件库",
     "better-auth": "better-auth 是一个用于快速构建现代网站的认证系统",
     "postgresql": "postgresql 是一个开源的关系型数据库管理系统"
+  },
+  "features": {
+    "title": "覆盖您的需求",
+    "description": "可以轻松构建您的SaaS应用",
+    "customizable": "可定制",
+    "youHaveFullControl": "您拥有完全控制权",
+    "poweredByAI": "由AI驱动",
+    "customizableDescription": "广泛的自定义选项，允许您根据您的特定需求定制每个方面。",
+    "youHaveFullControlDescription": "从设计元素到功能，您拥有完全控制权，以创建独特且个性化的体验。",
+    "poweredByAIDescription": "元素到功能，您拥有完全控制权，以创建独特且个性化的体验。"
   }
 }

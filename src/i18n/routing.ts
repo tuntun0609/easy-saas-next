@@ -2,8 +2,8 @@ import { I18nConfig } from 'fumadocs-core/i18n'
 import { defineRouting } from 'next-intl/routing'
 
 export const routing = defineRouting({
-  locales: ['en', 'zh'],
-  defaultLocale: 'zh',
+  locales: ['en', 'zh'], // 支持的语言
+  defaultLocale: 'zh', // 默认语言
   localePrefix: 'as-needed',
 })
 

@@ -1,8 +1,10 @@
 import type { ImgHTMLAttributes } from 'react'
+import { createElement } from 'react'
 import { loader } from 'fumadocs-core/source'
 import { ImageZoom } from 'fumadocs-ui/components/image-zoom'
 import fumaDefaultMdxComponents from 'fumadocs-ui/mdx'
 import { isNil } from 'lodash-es'
+import { icons } from 'lucide-react'
 import { Locale } from 'next-intl'
 
 import { Mermaid } from '@/components/blocks/mermaid'
@@ -10,16 +12,30 @@ import { blog, docs, pages } from '@source'
 
 import { i18nDocsConfig, routing } from '../i18n/routing'
 
+const iconLoader = (icon: string | undefined) => {
+  if (!icon) {
+    return <></>
+  }
+
+  if (icon in icons) {
+    return createElement(icons[icon as keyof typeof icons])
+  }
+
+  return <></>
+}
+
 export const docsSource = loader({
   i18n: i18nDocsConfig,
   baseUrl: '/docs',
   source: docs.toFumadocsSource(),
+  icon: iconLoader,
 })
 
 export const blogSource = loader({
   i18n: i18nDocsConfig,
   baseUrl: '/blog',
   source: blog.toFumadocsSource(),
+  icon: iconLoader,
 })
 
 // 从文件名中提取语言代码

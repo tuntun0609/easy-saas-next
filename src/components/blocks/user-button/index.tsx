@@ -44,7 +44,6 @@ export const UserButton = ({
   } = useUser()
 
   const isAdmin = useMemo(() => {
-    console.log(session)
     if (session?.user.role === 'admin') {
       return true
     }

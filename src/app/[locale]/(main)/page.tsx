@@ -1,4 +1,5 @@
 import { FAQ } from '@/components/FAQ'
+import Features from '@/components/features-1'
 import HeroSection from '@/components/hero-section'
 import IntegrationsSection from '@/components/integrations'
 import Pricing from '@/components/pricing'
@@ -13,6 +14,9 @@ export default function Home() {
       </AnimatedViewport>
       <AnimatedViewport preset="blur-slide-fade">
         <FAQ />
+      </AnimatedViewport>
+      <AnimatedViewport preset="blur-slide-fade">
+        <Features />
       </AnimatedViewport>
       <AnimatedViewport preset="blur-slide-fade">
         <Pricing />

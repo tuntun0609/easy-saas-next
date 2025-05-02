@@ -1,0 +1,73 @@
+---
+title: i18n
+icon: 'Languages'
+---
+
+**Easy SaaS Next** uses [next-intl](https://next-intl-docs.vercel.app/) as the internationalization library.
+
+## Configuration
+
+Configure internationalization in the `src/i18n` folder. You can configure supported languages in the highlighted line.
+
+```ts title="src/i18n/routing.ts"
+export const routing = defineRouting({
+  locales: ['en', 'zh'], // supported languages // [!code highlight]
+  defaultLocale: 'zh', // default language
+  localePrefix: 'as-needed',
+})
+```
+
+For the Fumadocs documentation framework, we have configured the `src/i18n/fumadocs-ui-translation.ts` file to translate the content of the documentation framework.
+
+You can add translations for corresponding languages as shown in the code below:
+
+<include cwd lang="tsx" meta='title="src/i18n/fumadocs-ui-translation.ts"'>
+  ./src/i18n/fumadocs-ui-translation.ts
+</include>
+
+### Adding Language Translations
+
+The language switching component will automatically add corresponding switch buttons based on the configured languages. You only need to add the translation text for the corresponding language in the `locale` folder.
+
+```json title="locale/zh.json"
+{
+  "LocaleSwitch": {
+    "locale": "{locale, select, zh {中文} en {English} other {Unknown}}", // [!code --]
+    "locale": "{locale, select, zh {中文} en {English} jp {日本語} other {Unknown}}" // [!code ++]
+  }
+}
+```
+
+### Usage in Components
+
+Translation files are stored in the `locale` folder in the root directory.
+
+Using in components:
+
+```tsx
+import { useTranslations } from 'next-intl'
+
+const t = useTranslations('HomePage')
+
+return <div>{t('title')}</div>
+```
+
+Or use on the server side:
+
+```tsx
+import { getTranslations } from 'next-intl/server'
+
+const t = getTranslations('HomePage')
+
+return <div>{t('title')}</div>
+```
+
+It is highly recommended to use with the [i18n-ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally) plugin.
+
+This plugin can manage translation files, provide auto-completion for translations, and preview translations directly.
+
+## References
+
+- [next-intl](https://next-intl-docs.vercel.app/)
+- [i18n-ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
+

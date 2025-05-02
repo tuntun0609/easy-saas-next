@@ -148,5 +148,15 @@
     "shadcn": "shadcn/ui is a component library for building modern websites",
     "better-auth": "better-auth is an authentication system for building modern websites",
     "postgresql": "postgresql is an open source relational database management system"
+  },
+  "features": {
+    "title": "Built to cover your needs",
+    "description": "Libero sapiente aliquam quibusdam aspernatur, praesentium iusto repellendus.",
+    "customizable": "Customizable",
+    "youHaveFullControl": "You have full control",
+    "poweredByAI": "Powered By AI",
+    "customizableDescription": "Extensive customization options, allowing you to tailor every aspect to meet your specific needs.",
+    "youHaveFullControlDescription": "From design elements to functionality, you have complete control to create a unique and personalized experience.",
+    "poweredByAIDescription": "Elements to functionality, you have complete control to create a unique experience."
   }
 }

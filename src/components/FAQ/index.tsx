@@ -5,7 +5,7 @@ import { FAQ as FAQBlock } from '@/components/blocks/FAQ'
 export const FAQ = () => {
   const t = useTranslations('FAQ')
   return (
-    <div id="faq">
+    <div id="faq" className="pb-16 md:pb-32">
       <FAQBlock
         title={t('title')}
         description={t('description')}

@@ -32,7 +32,7 @@ export default function HeroSection() {
   return (
     <>
       <section>
-        <div className="relative pt-8 md:pt-16">
+        <div className="relative pt-12 md:pt-24">
           <div className="mx-auto max-w-7xl px-6">
             <div className="text-center sm:mx-auto lg:mt-0 lg:mr-auto">
               <AnimatedGroup variants={transitionVariants}>

@@ -1,0 +1,72 @@
+---
+title: 国际化
+icon: 'Languages'
+---
+
+**Easy SaaS Next** 使用 [next-intl](https://next-intl-docs.vercel.app/) 作为国际化库。
+
+## 配置
+
+在 `src/i18n` 文件夹中配置国际化。你可以在高亮行中配置支持的语言。
+
+```ts title="src/i18n/routing.ts"
+export const routing = defineRouting({
+  locales: ['en', 'zh'], // 支持的语言 // [!code highlight]
+  defaultLocale: 'zh', // 默认语言
+  localePrefix: 'as-needed',
+})
+```
+
+针对 Fumadocs 文档框架，我们配置了 `src/i18n/fumadocs-ui-translation.ts` 文件。来对文档框架的内容进行翻译。
+
+你可以如下面代码一样添加对应语言的翻译
+
+<include cwd lang="tsx" meta='title="src/i18n/fumadocs-ui-translation.ts"'>
+  ./src/i18n/fumadocs-ui-translation.ts
+</include>
+
+### 添加对应语言翻译
+
+切换语言的组件会自动根据配置的语言添加对应的切换按钮。你只需要在 `locale` 文件夹中添加对应语言的翻译文本。
+
+```json title="locale/zh.json"
+{
+  "LocaleSwitch": {
+    "locale": "{locale, select, zh {中文} en {English} other {Unknown}}", // [!code --]
+    "locale": "{locale, select, zh {中文} en {English} jp {日本語} other {Unknown}}" // [!code ++]
+  }
+}
+```
+
+### 组件内使用
+
+翻译的文件放在根目录下的 `locale` 文件夹中。
+
+在组件中使用：
+
+```tsx
+import { useTranslations } from 'next-intl'
+
+const t = useTranslations('HomePage')
+
+return <div>{t('title')}</div>
+```
+
+或者在服务端使用：
+
+```tsx
+import { getTranslations } from 'next-intl/server'
+
+const t = getTranslations('HomePage')
+
+return <div>{t('title')}</div>
+```
+
+强烈推荐搭配 [i18n-ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally) 插件使用。
+
+可以管理翻译文件，并且可以自动补全翻译。或者直接预览翻译。
+
+## 参考链接
+
+- [next-intl](https://next-intl-docs.vercel.app/)
+- [i18n-ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)

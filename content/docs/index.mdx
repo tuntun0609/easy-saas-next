@@ -1,74 +1,132 @@
 ---
-title: 首页
+title: 介绍
+icon: 'Book'
 ---
 
-## 首页
+**Easy SaaS Next** 是一个基于 Next.js 的 SaaS 应用框架, 它可以帮助你快速构建一个 SaaS 应用。
 
-content
+## 特性
 
-## 标题 2
+- 基于 Next.js 构建, 使用 TypeScript 开发
+- 使用 Tailwind CSS 和 Shadcn UI 组件库（得益于 shadcn/ui 的 blocks 功能，可以轻松使用大量精美的组件）
+- 支持响应式、暗黑模式
+- 内置 SEO 优化
+- 集成多种 SaaS 服务，如数据库、邮件、登录、国际化等
+- 内置文档和 Blog 功能
 
-内容
+## 适合人群
 
-$$a=b$$
+适合有一定开发经验的开发者，如果你是初学者，可能需要花费一些时间来学习 React、Next.js 和 TypeScript。
 
-![alt text](/next.svg)
+如果你是前端开发者，之前没有接触过后端开发，那么你可能需要花费一些时间来学习 Node.js 和数据库。**Easy SaaS Next** 使用 Node.js 和 PostgreSQL 作为后端，使用 [Drizzle](https://orm.drizzle.team/) 作为 ORM。
 
-```typescript
-const Pricing = () => {
-  return <div>Pricing</div> // [!code highlight]
-}
+数据库默认使用 [Supabase](https://supabase.com/)，你也可以选择其他数据库，比如
+[neon](https://neon.tech/)
 
-export default Pricing
-```
+样式内置 [Tailwind CSS](https://tailwindcss.com/) 和 [Shadcn UI](https://ui.shadcn.com/)，你也可以选择使用原生 CSS。
 
-<Callout type='warn'>
-Hello World
-</Callout>
+这里列出一些你可能需要学习的工具：
 
+import {
+  Atom,
+  LayoutTemplate,
+  FileCode,
+  Server,
+  Paintbrush,
+  Component,
+  Moon,
+  Database,
+  Cloud,
+  Languages,
+  Mail,
+  Lock,
+  FileText,
+  CheckCircle,
+  Code,
+  FileCode2,
+  TableProperties,
+  Brain,
+  Package,
+} from 'lucide-react'
 
+### 核心框架和语言
 
-<Mermaid
-chart={`
-graph TD;
-subgraph AA [Consumers]
-A[Mobile app];
-B[Web app];
-C[Node.js client];
-end
-subgraph BB [Services]
-E[REST API];
-F[GraphQL API];
-G[SOAP API];
-end
-Z[GraphQL API];
-A --> Z;
-B --> Z;
-C --> Z;
-Z --> E;
-Z --> F;
-Z --> G;
-`}
-/>
+<Cards>
+  <Card href="https://react.dev/" title="React" icon={<Atom />}>
+    React 是用于构建用户界面的 JavaScript 库。
+  </Card>
+  <Card href="https://nextjs.org/" title="Next.js" icon={<LayoutTemplate />}>
+    Next.js 是一个用于构建服务器端渲染 (SSR) 和静态网站的 React 框架。
+  </Card>
+  <Card href="https://www.typescriptlang.org/" title="TypeScript" icon={<FileCode />}>
+    TypeScript 是 JavaScript 的超集，添加了静态类型系统。
+  </Card>
+  <Card href="https://nodejs.org/" title="Node.js" icon={<Server />}>
+    Node.js 是一个用于构建服务器端应用的 JavaScript 运行时。
+  </Card>
+</Cards>
 
-内容
+### UI 和样式
 
-内容
+<Cards>
+  <Card href="https://tailwindcss.com/" title="Tailwind CSS" icon={<Paintbrush />}>
+    Tailwind CSS 是一个用于快速构建样式的 CSS 框架。
+  </Card>
+  <Card href="https://ui.shadcn.com/" title="Shadcn UI" icon={<Component />}>
+    Shadcn UI 是一个用于快速构建样式的 UI 组件库。
+  </Card>
+  <Card href="https://next-themes.com/" title="next-themes" icon={<Moon />}>
+    next-themes 是一个用于构建主题系统的库。
+  </Card>
+</Cards>
 
-内容
+### 数据库和后端
 
-内容
+<Cards>
+  <Card href="https://orm.drizzle.team/" title="Drizzle" icon={<Database />}>
+    Drizzle 是一个用于数据库操作的 ORM。
+  </Card>
+  <Card href="https://supabase.com/" title="Supabase" icon={<Cloud />}>
+    Supabase 是一个用于构建 SaaS 应用的云平台。
+  </Card>
+  <Card href="https://www.postgresql.org/" title="PostgreSQL" icon={<TableProperties />}>
+    PostgreSQL 是一个用于构建 SaaS 应用的数据库。
+  </Card>
+</Cards>
 
-内容
+### 功能模块
 
-内容
+<Cards>
+  <Card href="https://next-intl-docs.vercel.app/" title="next-intl" icon={<Languages />}>
+    next-intl 是一个用于构建国际化应用的库。
+  </Card>
+  <Card href="https://resend.com/" title="resend" icon={<Mail />}>
+    resend 是一个用于发送邮件的库。
+  </Card>
+  <Card href="https://better-auth.com/" title="better-auth" icon={<Lock />}>
+    better-auth 是一个用于构建认证系统的库。
+  </Card>
+  <Card href="https://fumadocs.com/" title="fumadocs-core" icon={<FileText />}>
+    fumadocs 是一个用于构建文档系统的库。
+  </Card>
+  <Card href="https://ai.com/" title="ai" icon={<Brain />}>
+    ai 是一个用于构建 AI 应用的库。
+  </Card>
+  <Card href="https://zod.dev/" title="zod" icon={<CheckCircle />}>
+    zod 是一个运行时类型检查库。
+  </Card>
+</Cards>
 
-内容
+### 开发工具
 
-内容
-
-内容
-
-内容
-
-内容
+<Cards>
+  <Card href="https://eslint.org/" title="eslint" icon={<Code />}>
+    eslint 是一个用于构建 ESLint 的库。
+  </Card>
+  <Card href="https://prettier.io/" title="prettier" icon={<FileCode2 />}>
+    prettier 是一个用于构建 Prettier 的库。
+  </Card>
+  <Card href="https://pnpm.io/" title="pnpm" icon={<Package />}>
+    pnpm 是包管理工具。
+  </Card>
+</Cards>

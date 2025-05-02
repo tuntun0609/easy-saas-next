@@ -1,0 +1,11 @@
+{
+	"title": "Docs",
+	"description": "Docs",
+	"root": true,
+	"pages": [
+		"---Introduction---",
+		"index",
+		"---Integrations---",
+		"...integrations"
+	]
+}
