@@ -77,6 +77,10 @@
         "answer": "Absolutely! The video tutorials are free. You can learn how to use Easy SaaS Next through the video tutorials and practice based on the content in the tutorials to build your SaaS application. If you find the video tutorials helpful or want to use Easy SaaS Next's source code directly to build your SaaS application, you can purchase the paid version."
       },
       {
+        "question": "What is the difference between the video tutorials and the paid version?",
+        "answer": "The video tutorials are free, and some key code explanations and practices are included, but the complete source code is not included, so you cannot get the complete source code from the tutorials. The paid version includes the complete source code, and you can get the complete source code and technical support."
+      },
+      {
         "question": "Will the template be updated continuously?",
         "answer": "Yes, I will continue to update the template and provide technical support."
       },
