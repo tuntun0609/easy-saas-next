@@ -1,0 +1,92 @@
+---
+title: Authentication System
+description: Quickly implement an authentication system in Easy SaaS Next using better-auth
+icon: 'User'
+---
+
+**Easy SaaS Next** uses [better-auth](https://better-auth.com/) as its authentication system.
+
+Using `better-auth` requires database support. Therefore, you need to configure the database before using it.
+
+## Configuration
+
+All configuration files are located in the `src/lib` folder.
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files'
+
+<Files>
+  <Folder name="src" defaultOpen>
+    <Folder name="lib" defaultOpen>
+      <File name="auth-client.ts" />
+      <File name="auth.ts" />
+    </Folder>
+  </Folder>
+</Files>
+
+For rapid development, **Easy SaaS Next** uses Google and Github as default authentication methods.
+
+The advantage of this approach is that users don't need to verify their email addresses (email login typically requires sending verification emails). You only need to apply for Google and Github OAuth to quickly integrate the authentication system.
+
+## Configure Google OAuth
+
+1. Log in to [Google Cloud Console](https://console.cloud.google.com/)
+2. Go to [OAuth Client ID](https://console.cloud.google.com/apis/credentials) to create an OAuth client ID
+3. Configure `JavaScript Origins` as `http://localhost:3000` or `https://your-domain`
+3. Configure `Redirect URI` as `http://localhost:3000/api/auth/callback/google` or `https://your-domain/api/auth/callback/google`
+3. Configure the `clientId` and `clientSecret` in your environment variables
+
+```text title=".env"
+# google client id
+GOOGLE_CLIENT_ID=
+# google client secret
+GOOGLE_CLIENT_SECRET=
+```
+
+## Configure Github OAuth
+
+1. Log in to [Github](https://github.com/settings/developers)
+2. Go to [OAuth Apps](https://github.com/settings/developers) to create an OAuth application
+3. Configure `Homepage URL` as `http://localhost:3000` or `https://your-domain`
+3. Configure `Authorization callback URL` as `http://localhost:3000/api/auth/callback/github` or `https://your-domain/api/auth/callback/github`
+3. Configure the `clientId` and `clientSecret` in your environment variables
+
+```text title=".env"
+# github client id
+GITHUB_CLIENT_ID=
+# github client secret
+GITHUB_CLIENT_SECRET=
+```
+
+## Plugins
+
+**Easy SaaS Next** uses plugins to enhance `better-auth` functionality.
+
+### Admin Plugin
+
+The `admin` plugin is one of the `better-auth` plugins used for user management by administrators or route protection.
+
+You only need to find the user table in your database and set the `role` field of your account to `admin`.
+
+For more details, please check the [better-auth admin plugin documentation](https://www.better-auth.com/docs/plugins/admin).
+
+## Usage
+
+### Using in Client-side
+
+```tsx
+import { useUser } from '@/components/user-provider'
+
+const { data: session, isPending, error } = useUser()
+```
+
+### Using in Server-side
+
+```tsx
+import { headers } from 'next/headers'
+
+import { auth } from '@/lib/auth'
+
+const session = await auth.api.getSession({
+  headers: await headers(),
+})
+```

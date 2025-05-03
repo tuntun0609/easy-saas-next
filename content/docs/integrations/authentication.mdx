@@ -1,0 +1,92 @@
+---
+title: 登录系统
+description: 在 Easy SaaS Next 中使用 better-auth 快速实现登录系统
+icon: 'User'
+---
+
+**Easy SaaS Next** 使用 [better-auth](https://better-auth.com/) 作为登录系统。
+
+使用 `better-auth` 需要数据库支持。所以在使用前需要先配置数据库。
+
+## 配置
+
+所有的配置文件都位于 `src/lib` 文件夹中。
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files'
+
+<Files>
+  <Folder name="src" defaultOpen>
+    <Folder name="lib" defaultOpen>
+      <File name="auth-client.ts" />
+      <File name="auth.ts" />
+    </Folder>
+  </Folder>
+</Files>
+
+为了方便快速开发，**Easy SaaS Next** 中默认使用了 Google 和 Github 作为登录方式。
+
+这样做的好处是用户无需验证邮箱（使用邮箱登录通常需要发送邮件来验证邮箱真实性），只需要申请 Google 和 Github 的 OAuth 就可以快速接入登录系统。
+
+## 配置 Google OAuth
+
+1. 登录 [Google Cloud Console](https://console.cloud.google.com/)
+2. 前往 [OAuth 客户端 ID](https://console.cloud.google.com/apis/credentials) 创建 OAuth 客户端 ID
+3. 配置 `JavaScript 来源` 为 `http://localhost:3000` 或 `https://您的域名`
+3. 配置 `重定向 URI` 为 `http://localhost:3000/api/auth/callback/google` 或 `https://您的域名/api/auth/callback/google`
+3. 将 `clientId` 和 `clientSecret` 配置到环境变量中
+
+```text title=".env"
+# google client id
+GOOGLE_CLIENT_ID=
+# google client secret
+GOOGLE_CLIENT_SECRET=
+```
+
+## 配置 Github OAuth
+
+1. 登录 [Github](https://github.com/settings/developers)
+2. 前往 [OAuth 应用](https://github.com/settings/developers) 创建 OAuth 应用
+3. 配置 `Homepage URL` 为 `http://localhost:3000` 或 `https://您的域名`
+3. 配置 `Authorization callback URL` 为 `http://localhost:3000/api/auth/callback/github` 或 `https://您的域名/api/auth/callback/github`
+3. 将 `clientId` 和 `clientSecret` 配置到环境变量中
+
+```text title=".env"
+# github client id
+GITHUB_CLIENT_ID=
+# github client secret
+GITHUB_CLIENT_SECRET=
+```
+
+## 插件
+
+**Easy SaaS Next** 中使用插件来增强 `better-auth` 的功能。
+
+### 管理员插件
+
+`admin` 插件是 `better-auth` 的插件之一，用于管理员管理用户，或者保护路由。
+
+你只需要在数据库中，找到 user 表，将您的账户中 `role` 字段设置为 `admin` 即可。
+
+更多详情请查看 [better-auth admin 插件文档](https://www.better-auth.com/docs/plugins/admin)。
+
+## 使用
+
+### 客户端中使用
+
+```tsx
+import { useUser } from '@/components/user-provider'
+
+const { data: session, isPending, error } = useUser()
+```
+
+### 服务端中使用
+
+```tsx
+import { headers } from 'next/headers'
+
+import { auth } from '@/lib/auth'
+
+const session = await auth.api.getSession({
+  headers: await headers(),
+})
+```
