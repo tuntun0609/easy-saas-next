@@ -52,21 +52,37 @@
     "product": "Product",
     "allRightsReserved": "All rights reserved"
   },
-  "FAQ": {
+  "faq": {
     "title": "FAQ",
     "description": "Below are some answers to common questions",
     "questions": [
       {
         "question": "What is Easy SaaS Next?",
-        "answer": "Easy SaaS Next is a SaaS application framework based on Nextjs, helping developers build SaaS applications quickly."
+        "answer": "Easy SaaS Next is a SaaS application framework based on Nextjs that helps developers quickly build SaaS applications."
       },
       {
-        "question": "What are the advantages of Easy SaaS Next?",
-        "answer": "Easy SaaS Next is a SaaS application framework based on Nextjs, helping developers build SaaS applications quickly."
+        "question": "Can I get a refund after purchase?",
+        "answer": "Since Easy SaaS Next is a virtual product, refunds are not supported. Please purchase carefully."
       },
       {
-        "question": "What are the features of Easy SaaS Next?",
-        "answer": "Easy SaaS Next is a SaaS application framework based on Nextjs, helping developers build SaaS applications quickly."
+        "question": "Will there be technical support after purchase?",
+        "answer": "Easy SaaS Next provides technical support. You can contact us via email or join the paid group for technical support. However, due to limited resources, we cannot provide free one-on-one technical support. Thank you for your understanding."
+      },
+      {
+        "question": "Is Easy SaaS Next suitable for me?",
+        "answer": "If you don't have programming basics, we recommend learning some prerequisite knowledge (which can be found in the documentation) or contacting us directly for customization. If you have sufficient programming foundation, Easy SaaS Next can help you quickly build your SaaS application."
+      },
+      {
+        "question": "Are the video tutorials free?",
+        "answer": "Absolutely! The video tutorials are free. You can learn how to use Easy SaaS Next through the video tutorials and practice based on the content in the tutorials to build your SaaS application. If you find the video tutorials helpful or want to use Easy SaaS Next's source code directly to build your SaaS application, you can purchase the paid version."
+      },
+      {
+        "question": "Will the template be updated continuously?",
+        "answer": "Yes, I will continue to update the template and provide technical support."
+      },
+      {
+        "question": "Can I use AI to modify this template?",
+        "answer": "Yes, because the technologies used in Easy SaaS Next are open source and AI-friendly, you can fully use AI to modify this template."
       }
     ]
   },

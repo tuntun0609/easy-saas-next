@@ -52,7 +52,7 @@
     "product": "产品",
     "allRightsReserved": "版权所有"
   },
-  "FAQ": {
+  "faq": {
     "title": "常见问题",
     "description": "以下是一些常见问题的解答",
     "questions": [
@@ -61,12 +61,28 @@
         "answer": "Easy SaaS Next是一个基于Nextjs的SaaS应用框架，可以帮助开发者快速构建SaaS应用。"
       },
       {
-        "question": "Easy SaaS Next有哪些特点?",
-        "answer": "Easy SaaS Next是一个基于Nextjs的SaaS应用框架，可以帮助开发者快速构建SaaS应用。"
+        "question": "购买后可以退款吗?",
+        "answer": "由于 Easy SaaS Next 属于虚拟产品，所以不支持退款。请谨慎购买。"
       },
       {
-        "question": "Easy SaaS Next有哪些优点?",
-        "answer": "Easy SaaS Next是一个基于Nextjs的SaaS应用框架，可以帮助开发者快速构建SaaS应用。"
+        "question": "购买后会有技术支持吗?",
+        "answer": "Easy SaaS Next 提供技术支持，您可以通过邮件联系我们，或加入付费群组获取技术支持。但由于精力有限，无法提供免费一对一技术支持，请谅解。"
+      },
+      {
+        "question": "我是否适合使用Easy SaaS Next?",
+        "answer": "如果您没有编程基础，建议您先学习一些前置的知识（在文档中即可查看到所需前置知识），或者直接找我定制。如果您有足够的编程基础，那么Easy SaaS Next 可以帮助您快速构建您的SaaS应用。"
+      },
+      {
+        "question": "视频教程是免费的吗?",
+        "answer": "当然！视频教程是免费的，您可以在视频教程中学习如何使用Easy SaaS Next，并根据视频教程中的内容进行实践，构建您的SaaS应用。如果您觉得视频教程有帮助或想直接使用 Easy SaaS Next 的源码来构建您的SaaS应用，可以直接购买付费版。"
+      },
+      {
+        "question": "模板会持续更新吗?",
+        "answer": "会的，我会持续更新模板，并提供技术支持。"
+      },
+      {
+        "question": "我可以使用 AI 来改造这个模板吗?",
+        "answer": "可以的，因为 Easy SaaS Next 所使用的技术都是开源并且对 AI 友好的，所以您可以完全使用 AI 来改造这个模板。"
       }
     ]
   },

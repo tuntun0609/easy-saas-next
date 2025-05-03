@@ -45,7 +45,7 @@ export default function Pricing() {
               <div className="space-y-4">
                 <div>
                   <h2 className="font-medium">{t('pro.name')}</h2>
-                  <span className="my-3 block text-2xl font-semibold">$9.9</span>
+                  <span className="my-3 block text-2xl font-semibold">$14.9 ≈ ¥100</span>
                   <p className="text-muted-foreground text-sm">{t('pro.per')}</p>
                 </div>
 
