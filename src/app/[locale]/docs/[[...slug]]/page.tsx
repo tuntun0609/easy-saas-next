@@ -1,10 +1,22 @@
+import { eq } from 'drizzle-orm'
 import { createRelativeLink } from 'fumadocs-ui/mdx'
 import { DocsPage, DocsBody, DocsDescription, DocsTitle } from 'fumadocs-ui/page'
 import { headers } from 'next/headers'
 import { notFound } from 'next/navigation'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getLocale } from 'next-intl/server'
 
-import LoginCard from '@/components/blocks/login-card'
+import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from '@/components/ui/card'
+import { db } from '@/db'
+import { oneTimePurchase } from '@/db/schema'
+import { redirect } from '@/i18n/navigation'
 import { auth } from '@/lib/auth'
 import { defaultMdxComponents, docsSource } from '@/lib/source'
 
@@ -12,25 +24,55 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
   const locale = await getLocale()
   const params = await props.params
   const page = docsSource.getPage(params.slug, locale)
-  const t = await getTranslations('LoginCard')
 
   if (!page) {
     notFound()
   }
 
-  // 可以在这里写一些权限控制，比如这里只允许登录用户访问私有文档
+  // 可以在这里写一些权限控制
   if (page.data.private) {
     const session = await auth.api.getSession({
       headers: await headers(),
     })
+
     if (!session) {
+      // 重定向到登录页面
+      redirect({
+        href: {
+          pathname: `/${locale}/login`,
+          query: {
+            callbackURL: `/${locale}/docs${params.slug && params.slug?.length > 0 ? `/${params.slug?.join('/')}` : ''}`,
+          },
+        },
+        locale,
+      })
+    }
+
+    // 查询用户是否订阅了该产品
+    const orders = await db.query.oneTimePurchase.findMany({
+      where: session?.user.id ? eq(oneTimePurchase.userId, session.user.id) : undefined,
+    })
+
+    if (orders.length === 0) {
       return (
-        <div className="flex flex-1 items-center justify-center">
-          <LoginCard
-            title={t('private')}
-            callbackURL={`/${locale}/docs${params.slug && params.slug?.length > 0 ? `/${params.slug?.join('/')}` : ''}`}
-          />
-        </div>
+        <DocsPage>
+          <Card className="mx-auto mt-8 max-w-2xl">
+            <CardHeader>
+              <CardTitle>需要购买才能访问</CardTitle>
+              <CardDescription>这是一个付费内容，请先购买后再查看</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                购买后您将获得完整的文档访问权限，包括所有高级内容和教程。
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Button asChild>
+                <a href={`/${locale}/pricing`}>前往购买</a>
+              </Button>
+            </CardFooter>
+          </Card>
+        </DocsPage>
       )
     }
   }

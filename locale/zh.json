@@ -156,7 +156,8 @@
       "group": "付费群组",
       "support": "售后支持(答疑)",
       "update": "持续更新"
-    }
+    },
+    "error": "获取支付链接失败"
   },
   "integrations": {
     "title": "使用最先进的技术栈",
@@ -178,5 +179,30 @@
     "customizableDescription": "广泛的自定义选项，允许您根据您的特定需求定制每个方面。",
     "youHaveFullControlDescription": "从设计元素到功能，您拥有完全控制权，以创建独特且个性化的体验。",
     "poweredByAIDescription": "元素到功能，您拥有完全控制权，以创建独特且个性化的体验。"
+  },
+  "paymentSuccess": {
+    "success": "付款成功",
+    "thanks": "感谢您的支持",
+    "explore": "去探索"
+  },
+  "user": {
+    "title": "个人中心",
+    "billing": "账单",
+    "account": "账号",
+    "billingPage": {
+      "billId": "账单ID",
+      "productId": "产品ID",
+      "createdAt": "创建时间",
+      "actions": "操作",
+      "customerPortal": "账单明细"
+    }
+  },
+  "components": {
+    "dataTable": {
+      "noData": "暂无数据",
+      "page": "第 {page} 页，共 {total} 页",
+      "previousPage": "上一页",
+      "nextPage": "下一页"
+    }
   }
 }

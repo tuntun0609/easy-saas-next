@@ -1,11 +1,40 @@
-import { Check } from 'lucide-react'
+'use client'
+
+import { useState } from 'react'
+import { Check, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
+import { createCheckoutSession } from '@/service/creem'
 
 export default function Pricing() {
   const t = useTranslations('pricing')
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleProClick = async () => {
+    try {
+      setIsLoading(true)
+      const productId = process.env.NEXT_PUBLIC_CREEM_PRODUCT_ID as string
+      if (!productId) {
+        toast.error(t('error'))
+        throw new Error('Product ID is not set')
+      }
+      const { checkoutUrl } = await createCheckoutSession(productId)
+      // 跳转至付款页面
+      const newWindow = window.open(checkoutUrl, '_blank', 'noopener,noreferrer')
+      if (newWindow) {
+        newWindow.opener = null
+      }
+    } catch (error) {
+      toast.error(t('error'))
+      console.error(error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <section className="py-16 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
@@ -49,8 +78,8 @@ export default function Pricing() {
                   <p className="text-muted-foreground text-sm">{t('pro.per')}</p>
                 </div>
 
-                <Button asChild className="w-full">
-                  <Link href="">{t('pro.getStarted')}</Link>
+                <Button disabled={isLoading} className="w-full" onClick={handleProClick}>
+                  {isLoading ? <Loader2 className="size-4 animate-spin" /> : t('pro.getStarted')}
                 </Button>
               </div>
 

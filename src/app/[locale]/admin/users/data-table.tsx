@@ -2,6 +2,7 @@
 
 import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -28,6 +29,7 @@ export const DataTable = <TData, TValue>({
 }: DataTableProps<TData, TValue>) => {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const t = useTranslations('components.dataTable')
 
   const table = useReactTable({
     data,
@@ -77,7 +79,7 @@ export const DataTable = <TData, TValue>({
                   colSpan={columns.length}
                   className="text-muted-foreground h-32 text-center"
                 >
-                  暂无数据
+                  {t('noData')}
                 </TableCell>
               </TableRow>
             )}
@@ -86,7 +88,7 @@ export const DataTable = <TData, TValue>({
       </div>
       <div className="flex items-center justify-between px-2">
         <div className="text-muted-foreground text-sm">
-          第 {currentPage} 页，共 {pageCount} 页
+          {t('page', { page: currentPage, total: pageCount })}
         </div>
         <div className="flex items-center space-x-2">
           <Button
@@ -96,7 +98,7 @@ export const DataTable = <TData, TValue>({
             disabled={currentPage <= 1}
             className="hover:bg-muted"
           >
-            上一页
+            {t('previousPage')}
           </Button>
           <Button
             variant="outline"
@@ -105,7 +107,7 @@ export const DataTable = <TData, TValue>({
             disabled={currentPage >= pageCount}
             className="hover:bg-muted"
           >
-            下一页
+            {t('nextPage')}
           </Button>
         </div>
       </div>

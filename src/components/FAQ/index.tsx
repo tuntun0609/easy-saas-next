@@ -53,6 +53,10 @@ export const FAQ = ({
       content: t('questions.6.question'),
       answer: t('questions.6.answer'),
     },
+    {
+      content: t('questions.7.question'),
+      answer: t('questions.7.answer'),
+    },
   ]
 
   return (

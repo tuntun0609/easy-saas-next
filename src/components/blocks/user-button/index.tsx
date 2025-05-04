@@ -1,7 +1,7 @@
 'use client'
 
 import { ComponentProps, CSSProperties, useMemo } from 'react'
-import { ChevronsUpDown, LogOut, User, Bell, CreditCard, LayoutDashboard } from 'lucide-react'
+import { ChevronsUpDown, LogOut, User, CreditCard, LayoutDashboard } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
@@ -152,7 +152,7 @@ export const UserButton = ({
               className="w-full justify-start gap-3 px-3 py-2 hover:bg-gray-100"
               asChild
             >
-              <Link href="/account" prefetch={false}>
+              <Link href="/user" prefetch={false}>
                 <User size={16} />
                 {t('account')}
               </Link>
@@ -163,22 +163,22 @@ export const UserButton = ({
               className="w-full justify-start gap-3 px-3 py-2 hover:bg-gray-100"
               asChild
             >
-              <Link href="/billing" prefetch={false}>
+              <Link href="/user/billing" prefetch={false}>
                 <CreditCard size={16} />
                 {t('billing')}
               </Link>
             </Button>
-            <Button
+            {/* <Button
               variant="ghost"
               size="sm"
               className="w-full justify-start gap-3 px-3 py-2 hover:bg-gray-100"
               asChild
             >
-              <Link href="/notifications" prefetch={false}>
+              <Link href="/user/notifications" prefetch={false}>
                 <Bell size={16} />
                 {t('notifications')}
               </Link>
-            </Button>
+            </Button> */}
             {isAdmin && (
               <Button
                 variant="ghost"

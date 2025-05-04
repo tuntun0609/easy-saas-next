@@ -1,14 +1,15 @@
+import ky from 'ky'
+
 import { BanUserRequest, UnbanUserRequest } from '@/type/user'
 
 // 禁用用户
 export async function banUser({ userId, reason, expiresIn }: BanUserRequest) {
-  const response = await fetch('/api/admin/users/ban', {
-    method: 'PUT',
-    body: JSON.stringify({
+  const response = await ky.put('/api/admin/users/ban', {
+    json: {
       userId,
       reason,
       expiresIn,
-    }),
+    },
   })
 
   if (!response.ok) {
@@ -20,9 +21,8 @@ export async function banUser({ userId, reason, expiresIn }: BanUserRequest) {
 
 // 解封用户
 export async function unbanUser({ userId }: UnbanUserRequest) {
-  const response = await fetch('/api/admin/users/unban', {
-    method: 'PUT',
-    body: JSON.stringify({ userId }),
+  const response = await ky.put('/api/admin/users/unban', {
+    json: { userId },
   })
 
   if (!response.ok) {

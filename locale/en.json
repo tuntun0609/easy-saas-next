@@ -156,7 +156,8 @@
       "group": "Paid Groups",
       "support": "After-sales support (Q&A)",
       "update": "Continuous update"
-    }
+    },
+    "error": "Failed to get payment link"
   },
   "integrations": {
     "title": "Using the most advanced technology stack",
@@ -178,5 +179,30 @@
     "customizableDescription": "Extensive customization options, allowing you to tailor every aspect to meet your specific needs.",
     "youHaveFullControlDescription": "From design elements to functionality, you have complete control to create a unique and personalized experience.",
     "poweredByAIDescription": "Elements to functionality, you have complete control to create a unique experience."
+  },
+  "paymentSuccess": {
+    "success": "Payment successfully",
+    "thanks": "Thank you for your support",
+    "explore": "Go and explore"
+  },
+  "user": {
+    "title": "Personal Center",
+    "billing": "bill",
+    "account": "account",
+    "billingPage": {
+      "billId": "Bill ID",
+      "productId": "Product ID",
+      "createdAt": "Created At",
+      "actions": "Actions",
+      "customerPortal": "Customer Portal"
+    }
+  },
+  "components": {
+    "dataTable": {
+      "noData": "No data",
+      "page": "Page {page} of {total}",
+      "previousPage": "Previous",
+      "nextPage": "Next"
+    }
   }
 }
