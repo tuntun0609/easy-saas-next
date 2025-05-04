@@ -1,5 +1,3 @@
-'use client'
-
 import { DocsBody } from 'fumadocs-ui/page'
 import { notFound } from 'next/navigation'
 import { useLocale } from 'next-intl'
