@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { isNil } from 'lodash-es'
 import { Calendar, Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -23,7 +24,7 @@ export default async function BlogListPage({
   const tags = allBlog
     .map(blog => blog.data.tags)
     .flat()
-    .filter(Boolean)
+    .filter(i => !isNil(i))
 
   const filteredBlog = allBlog.filter(blog => {
     if (tag || tag === 'all') {
