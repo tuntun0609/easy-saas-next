@@ -22,8 +22,8 @@ export default async function BlogListPage({
 
   const tags = allBlog
     .map(blog => blog.data.tags)
-    .filter(Boolean)
     .flat()
+    .filter(Boolean)
 
   const filteredBlog = allBlog.filter(blog => {
     if (tag || tag === 'all') {
