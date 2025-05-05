@@ -11,9 +11,8 @@ import { z } from 'zod'
 export const docs = defineDocs({
   dir: 'content/docs',
   docs: {
-    // @ts-ignore
     schema: frontmatterSchema.extend({
-      private: z.boolean().default(false),
+      pro: z.boolean().default(false),
     }),
   },
 })

@@ -33,8 +33,7 @@
     "welcomeDesc": "请选择登录方式继续",
     "google": "使用Google账号登录",
     "github": "使用Github账号登录",
-    "agree": "登录即表示同意我们的服务条款和隐私政策",
-    "private": "需要登录后才能访问"
+    "agree": "登录即表示同意我们的服务条款和隐私政策"
   },
   "footer": {
     "slogan": "使用最先进的技术构建你的SaaS应用",
@@ -213,6 +212,14 @@
       "page": "第 {page} 页，共 {total} 页",
       "previousPage": "上一页",
       "nextPage": "下一页"
+    }
+  },
+  "docs": {
+    "proAccess": {
+      "title": "需要购买才能访问",
+      "description": "这是一个付费内容，请先购买后再查看",
+      "content": "购买后您将获得完整的文档访问权限，包括所有高级内容和教程。",
+      "buyButton": "前往购买"
     }
   }
 }

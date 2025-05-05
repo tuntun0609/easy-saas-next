@@ -1,0 +1,57 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Component Development Guide
+
+## Component Structure
+
+Components should follow this organization:
+- UI components in `src/components/ui`
+- Layout components in `src/components/layout`
+- Feature components in `src/components/features`
+- Form components in `src/components/form`
+
+## Component Guidelines
+
+1. Props Interface
+   - Always define props interface with proper types
+   - Use descriptive prop names
+   - Document complex props with JSDoc comments
+
+2. Component Organization
+   - Export default the main component
+   - Co-locate related components
+   - Use composition over inheritance
+
+3. Styling
+   - Use Tailwind CSS for styling
+   - Follow the project's design system
+   - Keep styles modular and reusable
+
+4. State Management
+   - Use React hooks for local state
+   - Keep state as close as possible to where it's used
+   - Use context for truly global state
+
+5. Error Handling
+   - Implement proper error boundaries
+   - Handle loading and error states
+   - Provide meaningful error messages
+
+## Example Component Structure
+
+```tsx
+import { type FC } from 'react'
+
+interface MyComponentProps {
+  // props definition
+}
+
+const MyComponent: FC<MyComponentProps> = (props) => {
+  // component implementation
+}
+
+export default MyComponent
+```

@@ -2,8 +2,9 @@ import { eq } from 'drizzle-orm'
 import { createRelativeLink } from 'fumadocs-ui/mdx'
 import { DocsPage, DocsBody, DocsDescription, DocsTitle } from 'fumadocs-ui/page'
 import { headers } from 'next/headers'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getLocale } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -22,6 +23,7 @@ import { defaultMdxComponents, docsSource } from '@/lib/source'
 
 export default async function Page(props: { params: Promise<{ slug?: string[] }> }) {
   const locale = await getLocale()
+  const t = await getTranslations('docs')
   const params = await props.params
   const page = docsSource.getPage(params.slug, locale)
 
@@ -30,7 +32,7 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
   }
 
   // 可以在这里写一些权限控制
-  if (page.data.private) {
+  if (page.data.pro) {
     const session = await auth.api.getSession({
       headers: await headers(),
     })
@@ -58,17 +60,15 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
         <DocsPage>
           <Card className="mx-auto mt-8 max-w-2xl">
             <CardHeader>
-              <CardTitle>需要购买才能访问</CardTitle>
-              <CardDescription>这是一个付费内容，请先购买后再查看</CardDescription>
+              <CardTitle>{t('proAccess.title')}</CardTitle>
+              <CardDescription>{t('proAccess.description')}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
-                购买后您将获得完整的文档访问权限，包括所有高级内容和教程。
-              </p>
+              <p className="text-muted-foreground">{t('proAccess.content')}</p>
             </CardContent>
             <CardFooter>
               <Button asChild>
-                <a href={`/${locale}/pricing`}>前往购买</a>
+                <Link href={`/${locale}/pricing`}>{t('proAccess.buyButton')}</Link>
               </Button>
             </CardFooter>
           </Card>

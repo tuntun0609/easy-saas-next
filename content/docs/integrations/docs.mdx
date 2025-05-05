@@ -1,0 +1,72 @@
+---
+title: 编辑文档
+description: Easy SaaS Next 集成了 fumadocs, 可以方便的使用 markdown 编辑文档
+icon: FileText
+---
+
+[fumadocs](https://fumadocs.com/) 是一个用于构建文档系统的库。
+
+您可以使用 markdown 或者 mdx 来编辑文档。所有文档的文件在 `content/docs` 目录下。
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files'
+
+<Files>
+  <Folder name="content" defaultOpen>
+    <Folder name="docs" defaultOpen>
+      <File name="index.mdx" />
+      <File name="index.en.mdx" />
+    </Folder>
+  </Folder>
+</Files>
+
+您可以访问 `http://localhost:3000/docs` 来查看文档。
+
+## 新建&编辑文档
+
+您可以新建 `mdx` (推荐) 文件新建一个文档。文档需要遵循 [fumadocs](https://fumadocs.com/) 的规范。
+
+使用 `mdx` 除了可以使用标准 markdown 的语法外，还可以使用 `react` 的组件。
+
+```mdx title="index.mdx"
+import { Button } from '@/components/ui/button'
+
+<Button>点击我</Button>
+```
+
+所有的文档的最顶端需要添加 `frontmatter` 来配置文档的元数据。
+
+```mdx
+---
+title: 文档标题
+description: 文档描述
+icon: 文档图标
+---
+
+内容
+```
+
+可配置的参数有：
+
+| 名称 | 描述 |
+| --- | --- |
+| `title` | 页面标题 |
+| `description` | 页面描述 |
+| `icon` | 图标名称，使用 `lucide-react` 的图标。您只需要从 [icon list](https://lucide.dev/icons/) 中选择一个图标，复制图标的名字到 icon 字段即可。 |
+| `full` | 填充页面上的所有可用空间（Fumadocs UI） |
+| `pro` | 是否为 Pro 专属文档，只有已订阅 Pro 版本的用户才可以访问；配置后在文章标题旁会显示一个 `Pro` 标签 |
+
+详情请参考 [fumadocs frontmatter](https://fumadocs.dev/docs/headless/page-conventions#file) 的文档。
+
+## 国际化
+
+Easy SaaS Next 为集成了 `i18n` 功能，可以让你编辑不同语言的文档。
+
+如需要编辑英文文档，只需要将 `index.mdx` 文件重命名为 `index.en.mdx` 即可。
+
+## 文档目录
+
+文档目录是根据 `content/docs` 目录下的文件自动生成的。
+
+您可以在 `content/docs` 目录下创建新的文件夹，来生成新的文档目录。
+
+或者通过 `meta.json` 来自定义结构，详情见 [fumadocs routing](https://fumadocs.dev/docs/headless/page-conventions)。

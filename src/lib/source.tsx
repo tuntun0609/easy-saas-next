@@ -37,11 +37,11 @@ export const docsSource = loader({
 
       const data = file.data.data
 
-      if (data.private) {
+      if (data.pro) {
         node.name = (
           <>
             {node.name}
-            <span className="bg-primary py-0.2 inline-block rounded-md px-2 text-xs text-white">
+            <span className="pro-tag bg-primary py-0.2 ml-1 inline-block rounded-md px-2 text-xs text-white">
               Pro
             </span>
           </>

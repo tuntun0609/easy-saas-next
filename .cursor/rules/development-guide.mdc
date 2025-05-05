@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Development Guide
+
+## Code Organization
+
+- Components should be placed in `src/components`
+- Pages should be placed in `src/app`
+- Database models should be placed in `src/db`
+- Business logic should be placed in `src/service`
+- Utility functions should be placed in `src/lib`
+
+## Best Practices
+
+1. Use TypeScript for all new code
+2. Follow the component structure:
+   - One component per file
+   - Place related components in a shared directory
+   - Use index.ts for exports
+3. Use hooks for shared stateful logic
+4. Keep components small and focused
+5. Use proper TypeScript types from `src/types`
+
+## Database
+
+- Use Drizzle ORM for database operations
+- Place database schemas in `src/db/schema`
+- Place migrations in `src/db/migrations`
+
+## Internationalization
+
+- Use i18n system for all user-facing strings
+- Place translations in `src/i18n` directory
+- Follow the locale file structure for new translations

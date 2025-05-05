@@ -194,3 +194,7 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.541 0.281 293.009);
 }
+
+#nd-sidebar .pro-tag {
+  margin-left: 0px;
+}

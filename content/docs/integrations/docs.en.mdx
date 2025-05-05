@@ -1,0 +1,72 @@
+---
+title: Edit Documentation
+description: Easy SaaS Next integrates with fumadocs for convenient markdown documentation editing
+icon: FileText
+---
+
+[fumadocs](https://fumadocs.com/) is a library for building documentation systems.
+
+You can use markdown or mdx to edit documentation. All documentation files are located in the `content/docs` directory.
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files'
+
+<Files>
+  <Folder name="content" defaultOpen>
+    <Folder name="docs" defaultOpen>
+      <File name="index.mdx" />
+      <File name="index.en.mdx" />
+    </Folder>
+  </Folder>
+</Files>
+
+You can visit `http://localhost:3000/docs` to view the documentation.
+
+## Creating & Editing Documents
+
+You can create a new document by creating an `mdx` (recommended) file. Documents need to follow the [fumadocs](https://fumadocs.com/) specification.
+
+Using `mdx`, you can not only use standard markdown syntax but also React components.
+
+```mdx title="index.mdx"
+import { Button } from '@/components/ui/button'
+
+<Button>Click me</Button>
+```
+
+All documents need to have `frontmatter` at the top to configure document metadata.
+
+```mdx
+---
+title: Document Title
+description: Document Description
+icon: Document Icon
+---
+
+Content
+```
+
+Available configuration parameters:
+
+| Name | Description |
+| --- | --- |
+| `title` | Page title |
+| `description` | Page description |
+| `icon` | Icon name, using `lucide-react` icons. You only need to select an icon from the [icon list](https://lucide.dev/icons/) and copy the icon name to the icon field. |
+| `full` | Fill all available space on the page (Fumadocs UI) |
+| `pro` | Whether it's a Pro-exclusive document, only accessible to users who have subscribed to the Pro version; when configured, a `Pro` tag will be displayed next to the article title |
+
+For more details, please refer to the [fumadocs frontmatter](https://fumadocs.dev/docs/headless/page-conventions#file) documentation.
+
+## Internationalization
+
+Easy SaaS Next integrates `i18n` functionality, allowing you to edit documentation in different languages.
+
+To edit English documentation, simply rename the `index.mdx` file to `index.en.mdx`.
+
+## Documentation Directory
+
+The documentation directory is automatically generated based on the files in the `content/docs` directory.
+
+You can create new folders in the `content/docs` directory to generate new documentation directories.
+
+Or customize the structure through `meta.json`, see [fumadocs routing](https://fumadocs.dev/docs/headless/page-conventions) for details.

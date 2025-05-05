@@ -33,8 +33,7 @@
     "welcomeDesc": "Please select a login method to continue",
     "google": "Login with Google",
     "github": "Login with Github",
-    "agree": "Login means you agree to our terms of service and privacy policy",
-    "private": "You need to login to access this page"
+    "agree": "Login means you agree to our terms of service and privacy policy"
   },
   "footer": {
     "slogan": "Build your SaaS application with the latest technology",
@@ -213,6 +212,14 @@
       "page": "Page {page} of {total}",
       "previousPage": "Previous",
       "nextPage": "Next"
+    }
+  },
+  "docs": {
+    "proAccess": {
+      "title": "Purchase Required",
+      "description": "This is premium content, please purchase to view",
+      "content": "After purchase, you will get full access to the documentation, including all premium content and tutorials.",
+      "buyButton": "Go to Purchase"
     }
   }
 }
