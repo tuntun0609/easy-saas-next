@@ -29,6 +29,28 @@ export const docsSource = loader({
   baseUrl: '/docs',
   source: docs.toFumadocsSource(),
   icon: iconLoader,
+  pageTree: {
+    attachFile(node, file) {
+      if (!file) {
+        return node
+      }
+
+      const data = file.data.data
+
+      if (data.private) {
+        node.name = (
+          <>
+            {node.name}
+            <span className="bg-primary py-0.2 inline-block rounded-md px-2 text-xs text-white">
+              Pro
+            </span>
+          </>
+        )
+      }
+
+      return node
+    },
+  },
 })
 
 export const blogSource = loader({

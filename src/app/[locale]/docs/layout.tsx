@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import { NextProvider } from 'fumadocs-core/framework/next'
-import { I18nProvider } from 'fumadocs-ui/i18n'
 import { DocsLayout } from 'fumadocs-ui/layouts/docs'
 import { RootProvider } from 'fumadocs-ui/provider'
 import { useLocale, useTranslations } from 'next-intl'
@@ -27,36 +26,39 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <NextProvider>
-      <I18nProvider locale={locale} locales={locales} translations={fumadocsUiTranslations[locale]}>
-        <RootProvider
-          theme={{
-            attribute: 'class',
-            defaultTheme: 'system',
-            enableSystem: true,
-          }}
-        >
-          <DocsLayout
-            sidebar={{
-              prefetch: false,
-              footer: (
-                <div className="flex flex-col gap-1">
-                  <div className="flex justify-between">
-                    <LocaleSwitch />
-                    <ThemeToggle />
-                  </div>
-                  <div className="mt-2 flex w-full items-center">
-                    <UserButton size="large" showName />
-                  </div>
+      <RootProvider
+        theme={{
+          attribute: 'class',
+          defaultTheme: 'system',
+          enableSystem: true,
+        }}
+        i18n={{
+          locale,
+          locales,
+          translations: fumadocsUiTranslations[locale],
+        }}
+      >
+        <DocsLayout
+          sidebar={{
+            prefetch: false,
+            footer: (
+              <div className="flex flex-col gap-1">
+                <div className="flex justify-between">
+                  <LocaleSwitch />
+                  <ThemeToggle />
                 </div>
-              ),
-            }}
-            tree={docsSource.pageTree[locale]}
-            {...baseOptions(locale)}
-          >
-            {children}
-          </DocsLayout>
-        </RootProvider>
-      </I18nProvider>
+                <div className="mt-2 flex w-full items-center">
+                  <UserButton size="large" showName />
+                </div>
+              </div>
+            ),
+          }}
+          tree={docsSource.pageTree[locale]}
+          {...baseOptions(locale)}
+        >
+          {children}
+        </DocsLayout>
+      </RootProvider>
     </NextProvider>
   )
 }
