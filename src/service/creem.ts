@@ -8,6 +8,7 @@ export async function createCheckoutSession(productId: string): Promise<{
     searchParams: {
       product_id: productId,
     },
+    retry: 0,
   })
 
   return response.json()

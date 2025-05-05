@@ -90,12 +90,14 @@
       }
     ]
   },
-  "Blog": {
+  "blog": {
     "toc": "目录",
     "secondUnit": "秒",
     "minuteUnit": "分钟",
     "author": "作者",
-    "date": "日期"
+    "date": "日期",
+    "all": "全部",
+    "title": "博客"
   },
   "Admin": {
     "title": "管理后台",
@@ -189,6 +191,14 @@
     "title": "个人中心",
     "billing": "账单",
     "account": "账号",
+    "pleaseLogin": "请先登录",
+    "profile": {
+      "admin": "管理员",
+      "registeredAt": "注册于 {date}",
+      "banned": "账号已被封禁",
+      "banReason": "封禁原因: {reason}",
+      "banExpires": "解封时间: {date}"
+    },
     "billingPage": {
       "billId": "账单ID",
       "productId": "产品ID",

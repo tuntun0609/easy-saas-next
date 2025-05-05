@@ -90,12 +90,14 @@
       }
     ]
   },
-  "Blog": {
+  "blog": {
     "toc": "Table of Contents",
     "secondUnit": "s",
     "minuteUnit": "m",
     "author": "Author",
-    "date": "Date"
+    "date": "Date",
+    "all": "All",
+    "title": "Blogs"
   },
   "Admin": {
     "title": "Admin",
@@ -186,9 +188,17 @@
     "explore": "Go and explore"
   },
   "user": {
-    "title": "Personal Center",
-    "billing": "bill",
-    "account": "account",
+    "title": "Profile",
+    "billing": "Billing",
+    "account": "Account",
+    "pleaseLogin": "Please login first",
+    "profile": {
+      "admin": "Administrator",
+      "registeredAt": "Registered at {date}",
+      "banned": "Account is banned",
+      "banReason": "Ban reason: {reason}",
+      "banExpires": "Ban expires: {date}"
+    },
     "billingPage": {
       "billId": "Bill ID",
       "productId": "Product ID",

@@ -29,7 +29,7 @@ async function BlogPage(props: { params: Promise<{ slug?: string[] }> }) {
   const locale = await getLocale()
   const params = await props.params
   const blog = blogSource.getPage(params.slug, locale)
-  const t = await getTranslations('Blog')
+  const t = await getTranslations('blog')
 
   if (!blog) {
     notFound()

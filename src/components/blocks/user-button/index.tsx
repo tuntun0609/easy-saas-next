@@ -65,6 +65,7 @@ export const UserButton = ({
       >
         {t('pending')}
       </Button>
+      // <Skeleton className={cn(size === 'large' ? 'h-12 w-full rounded' : 'h-8 w-8 rounded-full')} />
     )
   }
 

@@ -11,6 +11,7 @@ import { z } from 'zod'
 export const docs = defineDocs({
   dir: 'content/docs',
   docs: {
+    // @ts-ignore
     schema: frontmatterSchema.extend({
       private: z.boolean().default(false),
     }),
@@ -20,10 +21,12 @@ export const docs = defineDocs({
 export const blog = defineDocs({
   dir: 'content/blog',
   docs: {
+    // @ts-ignore
     schema: frontmatterSchema.extend({
       author: z.string().optional(),
       date: z.date().optional(),
       cover: z.string().optional(),
+      tags: z.array(z.string()).optional(),
     }),
   },
 })

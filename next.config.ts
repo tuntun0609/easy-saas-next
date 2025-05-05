@@ -20,6 +20,9 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: false,
   crossOrigin: 'anonymous',
+  images: {
+    remotePatterns: [{ hostname: 'image.tuntun.site' }],
+  },
 }
 
 export default withMiddlewares(nextConfig, [withNextIntl, withMDX])
