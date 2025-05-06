@@ -1,4 +1,4 @@
-import { Creem } from 'creem'
+import ky from 'ky'
 import { headers } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -30,9 +30,10 @@ export interface CheckoutSession {
  * Server index 1 is used for test environment
  * 0: production, 1: test-mode
  */
-const creem = new Creem({
-  serverIdx: process.env.CREEM_MODE === 'prod' ? 0 : 1,
-})
+// const creem = new Creem({
+//   // serverIdx: process.env.CREEM_MODE === 'prod' ? 0 : 1,
+//   serverURL: 'https://api.creem.io',
+// })
 
 /**
  * GET /api/checkout
@@ -78,29 +79,58 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ error: 'CREEM_API_KEY is not set' }, { status: 500 })
   }
 
+  console.log('apiKey', apiKey)
+
   try {
     // Create checkout session using Creem SDK
     // This initiates the payment process and returns a checkout URL
-    const checkoutSessionResponse = await creem.createCheckout({
-      xApiKey: apiKey!,
-      createCheckoutRequest: {
-        productId: productId as string,
-        successUrl: successUrl as string,
-        // Link checkout to user for tracking and fulfillment
-        requestId: session?.user.id as string,
-        // Additional metadata for order processing and customer info
-        metadata: {
-          email: session?.user.email as string,
-          name: session?.user.name as string,
-          userId: session?.user.id as string,
+    // const checkoutSessionResponse = await creem.createCheckout({
+    //   xApiKey: apiKey!,
+    //   createCheckoutRequest: {
+    //     productId: productId as string,
+    //     successUrl: successUrl as string,
+    //     // Link checkout to user for tracking and fulfillment
+    //     requestId: session?.user.id as string,
+    //     // Additional metadata for order processing and customer info
+    //     metadata: {
+    //       email: session?.user.email as string,
+    //       name: session?.user.name as string,
+    //       userId: session?.user.id as string,
+    //     },
+    //   },
+    // })
+    const baseUrl =
+      process.env.CREEM_MODE === 'prod' ? 'https://api.creem.io' : 'https://test-api.creem.io'
+    const checkoutSessionResponse: any = await ky
+      .post(`${baseUrl}/v1/checkouts`, {
+        headers: {
+          'x-api-key': apiKey,
+          'Content-Type': 'application/json',
         },
-      },
-    })
+        json: {
+          product_id: productId as string,
+          success_url: successUrl as string,
+          // Link checkout to user for tracking and fulfillment
+          request_id: session?.user.id as string,
+          // Additional metadata for order processing and customer info
+          metadata: {
+            email: session?.user.email as string,
+            name: session?.user.name as string,
+            userId: session?.user.id as string,
+          },
+          customer: {
+            email: session?.user.email as string,
+          },
+        },
+      })
+      .json()
+
+    console.log(checkoutSessionResponse)
 
     // Return checkout URL for client-side redirect
     return NextResponse.json({
       success: true,
-      checkoutUrl: checkoutSessionResponse.checkoutUrl,
+      checkoutUrl: checkoutSessionResponse.checkout_url,
     })
   } catch (error) {
     console.error('Error creating checkout session:', error)

@@ -1,9 +1,10 @@
-import { Creem } from 'creem'
+import ky from 'ky'
 import { NextRequest, NextResponse } from 'next/server'
 
-const creem = new Creem({
-  serverIdx: process.env.CREEM_MODE === 'prod' ? 0 : 1,
-})
+// const creem = new Creem({
+//   // serverIdx: process.env.CREEM_MODE === 'prod' ? 0 : 1,
+//   serverURL: 'https://api.creem.io',
+// })
 
 /**
  * GET /api/customerPortal
@@ -50,15 +51,28 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
   try {
     // Generate customer portal link using Creem SDK
-    const customerPortalLogin = await creem.generateCustomerLinks({
-      xApiKey: apiKey as string,
-      createCustomerPortalLinkRequestEntity: {
-        customerId: customerId,
-      },
-    })
+    // const customerPortalLogin = await creem.generateCustomerLinks({
+    //   xApiKey: apiKey as string,
+    //   createCustomerPortalLinkRequestEntity: {
+    //     customerId: customerId,
+    //   },
+    // })
+
+    const baseUrl =
+      process.env.CREEM_MODE === 'prod' ? 'https://api.creem.io' : 'https://test-api.creem.io'
+    const customerPortalLogin: any = await ky
+      .post(`${baseUrl}/v1/customers/billing`, {
+        headers: {
+          'x-api-key': apiKey,
+        },
+        json: {
+          customer_id: customerId,
+        },
+      })
+      .json()
 
     // Return the portal URL for client-side redirect
-    return NextResponse.json({ url: customerPortalLogin.customerPortalLink })
+    return NextResponse.json({ url: customerPortalLogin.customer_portal_link })
   } catch (error) {
     console.error('Error generating customer portal link:', error)
     return NextResponse.json({ error: 'Failed to generate portal link' }, { status: 500 })
