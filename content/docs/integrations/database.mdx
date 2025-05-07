@@ -1,0 +1,92 @@
+---
+title: 数据库
+description: 数据库集成
+icon: 'Database'
+---
+
+**Easy SaaS Next** 使用 [postgres](https://www.postgresql.org/) 作为数据库。使用 [Drizzle](https://orm.drizzle.team/) 作为 ORM。
+
+## 数据库配置
+
+在 `.env` 文件中配置数据库连接信息。
+
+```bash
+# postgres database url
+POSTGRES_DATABASE_URL=postgresql://xxxx
+```
+
+可以使用 [Supabase](https://supabase.com/) 或者 [neon](https://neon.tech/) 作为数据库。
+
+只需要注册对应的账号就可以获取到数据库链接。对于小型应用，使用免费的账号就可以满足需求。
+
+## 数据库代码
+
+数据库相关代码在 `src/db` 文件夹中。
+
+```ts title="src/db/index.ts"
+import 'dotenv/config'
+
+import { drizzle } from 'drizzle-orm/postgres-js'
+import postgres from 'postgres'
+
+import * as schema from './schema'
+
+const connectionString = process.env.POSTGRES_DATABASE_URL!
+
+export const client = postgres(connectionString, { prepare: false })
+
+export const db = drizzle(client, { schema })
+```
+
+在 `src/db/schema.ts` 文件中定义数据库的表结构。
+
+默认的表有 `better-auth`  所需的表结构。与订单相关的表结构。
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files'
+
+<Files>
+  <Folder name="src" defaultOpen>
+    <Folder name="db" defaultOpen>
+      <File name="index.ts" />
+      <File name="schema.ts" />
+			<File name="auth-schema.ts" />
+			<File name="order-schema.ts" />
+    </Folder>
+  </Folder>
+</Files>
+
+## 数据库迁移
+
+数据库迁移是管理数据库架构变更的重要工具。当你修改了 `schema` 文件中的表结构定义后，需要通过迁移将这些变更同步到实际的数据库中。
+
+### 生成迁移文件
+
+首先，需要生成迁移文件来记录架构变更：
+
+```bash
+pnpm drizzle-kit generate
+# 或使用简写命令
+pnpm db:generate
+```
+
+### 应用迁移
+
+生成迁移文件后，你可以选择以下方式之一来应用变更：
+
+```bash
+# 方式一：直接推送架构变更到数据库（适用于开发环境）
+pnpm drizzle-kit push
+
+# 方式二：执行迁移（推荐用于生产环境）
+pnpm drizzle-kit migrate
+```
+
+推荐在生产环境中使用 `migrate` 命令，因为它能够更安全地处理数据迁移，并保持迁移历史记录。
+
+## 数据库可视化
+
+可以使用 [Drizzle Studio](https://orm.drizzle.team/drizzle-studio/overview) 可视化数据库。
+
+```bash
+pnpm db:studio
+```

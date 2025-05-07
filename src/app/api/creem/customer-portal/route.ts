@@ -50,14 +50,6 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   }
 
   try {
-    // Generate customer portal link using Creem SDK
-    // const customerPortalLogin = await creem.generateCustomerLinks({
-    //   xApiKey: apiKey as string,
-    //   createCustomerPortalLinkRequestEntity: {
-    //     customerId: customerId,
-    //   },
-    // })
-
     const baseUrl =
       process.env.CREEM_MODE === 'prod' ? 'https://api.creem.io' : 'https://test-api.creem.io'
     const customerPortalLogin: any = await ky

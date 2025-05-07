@@ -79,26 +79,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ error: 'CREEM_API_KEY is not set' }, { status: 500 })
   }
 
-  console.log('apiKey', apiKey)
-
   try {
-    // Create checkout session using Creem SDK
-    // This initiates the payment process and returns a checkout URL
-    // const checkoutSessionResponse = await creem.createCheckout({
-    //   xApiKey: apiKey!,
-    //   createCheckoutRequest: {
-    //     productId: productId as string,
-    //     successUrl: successUrl as string,
-    //     // Link checkout to user for tracking and fulfillment
-    //     requestId: session?.user.id as string,
-    //     // Additional metadata for order processing and customer info
-    //     metadata: {
-    //       email: session?.user.email as string,
-    //       name: session?.user.name as string,
-    //       userId: session?.user.id as string,
-    //     },
-    //   },
-    // })
     const baseUrl =
       process.env.CREEM_MODE === 'prod' ? 'https://api.creem.io' : 'https://test-api.creem.io'
     const checkoutSessionResponse: any = await ky
@@ -124,8 +105,6 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         },
       })
       .json()
-
-    console.log(checkoutSessionResponse)
 
     // Return checkout URL for client-side redirect
     return NextResponse.json({

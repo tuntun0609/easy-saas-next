@@ -1,0 +1,92 @@
+---
+title: Database
+description: Database Integration
+icon: 'Database'
+---
+
+**Easy SaaS Next** uses [postgres](https://www.postgresql.org/) as the database and [Drizzle](https://orm.drizzle.team/) as the ORM.
+
+## Database Configuration
+
+Configure database connection information in the `.env` file.
+
+```bash
+# postgres database url
+POSTGRES_DATABASE_URL=postgresql://xxxx
+```
+
+You can use [Supabase](https://supabase.com/) or [neon](https://neon.tech/) as your database provider.
+
+Simply register an account to get the database connection URL. For small applications, a free account can meet your needs.
+
+## Database Code
+
+Database-related code is located in the `src/db` folder.
+
+```ts title="src/db/index.ts"
+import 'dotenv/config'
+
+import { drizzle } from 'drizzle-orm/postgres-js'
+import postgres from 'postgres'
+
+import * as schema from './schema'
+
+const connectionString = process.env.POSTGRES_DATABASE_URL!
+
+export const client = postgres(connectionString, { prepare: false })
+
+export const db = drizzle(client, { schema })
+```
+
+Database table structures are defined in the `src/db/schema.ts` file.
+
+The default tables include the required table structures for `better-auth` and order-related tables.
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files'
+
+<Files>
+  <Folder name="src" defaultOpen>
+    <Folder name="db" defaultOpen>
+      <File name="index.ts" />
+      <File name="schema.ts" />
+			<File name="auth-schema.ts" />
+			<File name="order-schema.ts" />
+    </Folder>
+  </Folder>
+</Files>
+
+## Database Migration
+
+Database migration is an essential tool for managing database schema changes. After modifying table structure definitions in the `schema` files, you need to synchronize these changes to the actual database through migration.
+
+### Generate Migration Files
+
+First, generate migration files to record schema changes:
+
+```bash
+pnpm drizzle-kit generate
+# or use the shorthand command
+pnpm db:generate
+```
+
+### Apply Migrations
+
+After generating migration files, you can choose one of the following methods to apply changes:
+
+```bash
+# Method 1: Directly push schema changes to database (suitable for development environment)
+pnpm drizzle-kit push
+
+# Method 2: Execute migration (recommended for production environment)
+pnpm drizzle-kit migrate
+```
+
+It is recommended to use the `migrate` command in production environments as it handles data migration more safely and maintains migration history.
+
+## Database Visualization
+
+You can use [Drizzle Studio](https://orm.drizzle.team/drizzle-studio/overview) to visualize the database.
+
+```bash
+pnpm db:studio
+```
