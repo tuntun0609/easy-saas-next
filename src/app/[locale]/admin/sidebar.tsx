@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 
 import { LocaleSwitch } from '@/components/blocks/locale-switch'
 import { UserButton } from '@/components/blocks/user-button'
+import { Logo } from '@/components/logo'
 import ThemeToggle from '@/components/theme/theme-toggle'
 import {
   Sidebar,
@@ -29,11 +30,8 @@ export function AdminSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader>
         {open && (
-          <div
-            style={{ fontFamily: 'var(--font-caveat)' }}
-            className="text-center text-3xl font-bold whitespace-nowrap text-purple-600"
-          >
-            Easy Saas Next
+          <div className="flex justify-center">
+            <Logo />
           </div>
         )}
       </SidebarHeader>

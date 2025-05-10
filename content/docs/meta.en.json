@@ -5,6 +5,8 @@
 	"pages": [
 		"---Introduction---",
 		"index",
+		"---Env---",
+		"env",
 		"---Integrations---",
 		"...integrations"
 	]

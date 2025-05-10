@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 
 import { LocaleSwitch } from './blocks/locale-switch'
 import { UserButton } from './blocks/user-button'
+import { Logo } from './logo'
 import ThemeToggle from './theme/theme-toggle'
 
 export const HeroHeader = () => {
@@ -62,16 +63,7 @@ export const HeroHeader = () => {
         >
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
             <div className="flex w-full justify-between lg:w-auto">
-              <Link
-                aria-label="home"
-                style={{
-                  fontFamily: 'var(--font-caveat)',
-                }}
-                className="text-3xl font-bold text-purple-600 lg:mx-4"
-                href="/"
-              >
-                Easy Saas Next
-              </Link>
+              <Logo />
               <button
                 onClick={() => setMenuState(!menuState)}
                 aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}

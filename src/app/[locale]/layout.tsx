@@ -10,11 +10,12 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { UserProvider } from '@/components/user-provider'
 import { siteConfig } from '@/config'
 import { routing } from '@/i18n/routing'
-import { caveat, geistMono, geistSans } from '@/style/font'
+import { cn } from '@/lib/utils'
+import { caveat, geistMono, geistSans, notoSans } from '@/style/font'
 
 import type { Metadata } from 'next'
 
-import '../../style/globals.css'
+import '@/style/globals.css'
 
 export const metadata: Metadata = {
   title: 'Easy Saas Next',
@@ -40,7 +41,16 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}
+        className={cn(
+          notoSans.variable,
+          geistSans.variable,
+          geistMono.variable,
+          caveat.variable,
+          'antialiased'
+        )}
+        style={{
+          fontFamily: 'var(--font-noto-sans)',
+        }}
       >
         <UserProvider>
           <NextIntlClientProvider>

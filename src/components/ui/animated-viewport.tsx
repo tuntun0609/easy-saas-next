@@ -110,7 +110,7 @@ export function AnimatedViewport({
   className,
   preset = 'fade',
   once = true,
-  amount = 0.3,
+  amount = 0.2,
   margin = '20px',
 }: AnimatedViewportProps) {
   return (

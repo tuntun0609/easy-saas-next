@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
+import { Logo } from './logo'
+
 export default function FooterSection() {
   const t = useTranslations('footer')
 
@@ -44,15 +46,7 @@ export default function FooterSection() {
       <div className="mx-auto max-w-5xl px-6">
         <div className="grid gap-12 md:grid-cols-5">
           <div className="md:col-span-2">
-            <Link
-              style={{
-                fontFamily: 'var(--font-caveat)',
-              }}
-              className="text-3xl font-bold text-purple-600 lg:mx-4"
-              href="/"
-            >
-              Easy Saas Next
-            </Link>
+            <Logo />
           </div>
 
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:col-span-2 md:col-start-4 md:grid-cols-2">
