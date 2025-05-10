@@ -1,7 +1,7 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Development Guide
 
@@ -35,3 +35,7 @@ alwaysApply: false
 - Use i18n system for all user-facing strings
 - Place translations in `src/i18n` directory
 - Follow the locale file structure for new translations
+
+## icon
+
+- Prefer icons from lucide-react
