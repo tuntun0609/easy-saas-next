@@ -135,6 +135,28 @@
         "reasonRequired": "请输入封禁原因",
         "invalidBanDuration": "请输入有效的封禁时长（大于等于1天）"
       }
+    },
+    "R2Management": {
+      "title": "R2 资源管理",
+      "upload": "上传",
+      "manage": "管理",
+      "columns": {
+        "key": "文件名",
+        "size": "文件大小",
+        "uploaded": "上传时间",
+        "mimeType": "文件类型"
+      },
+      "copyUrl": "复制链接",
+      "download": "下载",
+      "delete": "删除",
+      "openMenu": "打开菜单",
+      "urlCopied": "链接已复制到剪贴板",
+      "downloadStarted": "开始下载",
+      "deleteSuccess": "文件已删除",
+      "deleteFailed": "删除失败"
+    },
+    "r2Management": {
+      "upload": "上传"
     }
   },
   "pricing": {

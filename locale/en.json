@@ -135,6 +135,28 @@
         "reasonRequired": "Please enter the ban reason",
         "invalidBanDuration": "Please enter a valid ban duration (greater than or equal to 1 day)"
       }
+    },
+    "R2Management": {
+      "title": "R2 Resource Management",
+      "upload": "Upload",
+      "manage": "Manage",
+      "columns": {
+        "key": "Filename",
+        "size": "Size",
+        "uploaded": "Upload Time",
+        "mimeType": "Mime Type"
+      },
+      "copyUrl": "Copy Url",
+      "download": "Download",
+      "delete": "Delete",
+      "openMenu": "Open Menu",
+      "urlCopied": "Url copied to clipboard",
+      "downloadStarted": "Download started",
+      "deleteSuccess": "File deleted",
+      "deleteFailed": "Failed to delete file"
+    },
+    "r2Management": {
+      "upload": "Upload"
     }
   },
   "pricing": {

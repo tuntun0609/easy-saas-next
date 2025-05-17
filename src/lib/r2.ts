@@ -1,6 +1,6 @@
 import crypto from 'crypto'
 
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
+import { S3Client, PutObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3'
 import { getSignedUrl as getSignedUrlS3 } from '@aws-sdk/s3-request-presigner'
 import dayjs from 'dayjs'
 
@@ -87,4 +87,17 @@ export const getSignedUrl = async (fileName: string) => {
   )
 
   return url
+}
+
+export const deleteFile = async (fileKey: string) => {
+  if (!process.env.R2_BUCKET_NAME) {
+    throw new Error('R2_BUCKET_NAME is not set')
+  }
+
+  const command = new DeleteObjectCommand({
+    Bucket: process.env.R2_BUCKET_NAME,
+    Key: fileKey,
+  })
+
+  await r2.send(command)
 }
