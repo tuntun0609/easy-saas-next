@@ -24,6 +24,7 @@ export const HeroHeader = () => {
   const menuItems: {
     name: string
     href: string
+    openInNewTab?: boolean
   }[] = [
     {
       name: t('docs'),
@@ -40,6 +41,11 @@ export const HeroHeader = () => {
     {
       name: t('about'),
       href: '/about',
+    },
+    {
+      name: 'Github',
+      href: 'https://github.com/tuntun0609/easy-saas-next',
+      openInNewTab: true,
     },
   ]
 
@@ -79,6 +85,8 @@ export const HeroHeader = () => {
                 {menuItems.map((item, index) => (
                   <li key={index}>
                     <Link
+                      target={item.openInNewTab ? '_blank' : '_self'}
+                      rel={item.openInNewTab ? 'noopener noreferrer' : undefined}
                       href={item.href}
                       className="text-muted-foreground hover:text-accent-foreground block duration-150"
                     >

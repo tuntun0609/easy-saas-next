@@ -24,7 +24,7 @@
   "Hero": {
     "getStarted": "Get Started",
     "readDocs": "Read Docs",
-    "announcement": "😃 Coming soon",
+    "announcement": "😃 Start anytime",
     "title": "Build SaaS applications faster with Easy SaaS Next",
     "description": "Use the most advanced technology in Easy SaaS Next, build your SaaS application based on Nextjs quickly"
   },
@@ -161,7 +161,7 @@
   },
   "pricing": {
     "title": "Pricing",
-    "description": "Choose the most suitable solution for your business needs and can be upgraded at any time",
+    "description": "The project is open source, you can view the source code at any time and conduct secondary development based on the source code. \nIf it helps you, you can pay for support",
     "free": {
       "name": "Free",
       "per": "Every user",

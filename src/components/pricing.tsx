@@ -36,7 +36,7 @@ export default function Pricing() {
   }
 
   return (
-    <section className="py-16 md:py-32">
+    <section id="price" className="py-16 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mx-auto max-w-2xl space-y-6 text-center">
           <h1 className="text-center text-4xl font-semibold lg:text-5xl">{t('title')}</h1>
@@ -74,7 +74,7 @@ export default function Pricing() {
               <div className="space-y-4">
                 <div>
                   <h2 className="font-medium">{t('pro.name')}</h2>
-                  <span className="my-3 block text-2xl font-semibold">$39.9</span>
+                  <span className="my-3 block text-2xl font-semibold">$9.9</span>
                   <p className="text-muted-foreground text-sm">{t('pro.per')}</p>
                 </div>
 

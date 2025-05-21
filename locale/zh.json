@@ -24,7 +24,7 @@
   "Hero": {
     "getStarted": "立即开始",
     "readDocs": "阅读文档",
-    "announcement": "😃 即将发布",
+    "announcement": "😃 随时开始",
     "title": "使用 Easy SaaS Next 更快构建 SaaS 应用",
     "description": "在Easy SaaS Next中使用最先进的技术，基于 Nextjs 快速构建你的 SaaS 应用"
   },
@@ -161,7 +161,7 @@
   },
   "pricing": {
     "title": "订阅计划",
-    "description": "选择最适合您业务需求的方案，随时可以升级",
+    "description": "项目已开源，您可以随时查看源码，并根据源码进行二次开发。如果对您有帮助，可以付费支持",
     "free": {
       "name": "免费",
       "per": "每位用户",
