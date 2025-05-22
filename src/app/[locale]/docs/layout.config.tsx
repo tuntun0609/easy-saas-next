@@ -1,5 +1,4 @@
 import { Book } from 'lucide-react'
-import Link from 'next/link'
 
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
 
@@ -18,11 +17,12 @@ export const baseOptions = (_locale: string): BaseLayoutProps => ({
   },
   nav: {
     title: (
-      <Link className="flex items-center gap-2" href="/docs">
+      <div className="flex items-center gap-2">
         <Book size={16} />
         Easy SaaS Next
-      </Link>
+      </div>
     ),
+    url: '/docs',
   },
   // links: [
   //   {
